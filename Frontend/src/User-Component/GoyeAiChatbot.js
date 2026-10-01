@@ -7,6 +7,7 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+  const chatAreaRef = useRef(null);
 
   // Auto-scroll to bottom of chat
   const scrollToBottom = () => {
@@ -15,7 +16,11 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
 
   useEffect(() => {
     if (isOpen) {
-      scrollToBottom();
+      if (messages.length > 0) {
+        scrollToBottom();
+      } else if (chatAreaRef.current) {
+        chatAreaRef.current.scrollTop = 0;
+      }
     }
   }, [messages, isTyping, isOpen]);
 
@@ -98,10 +103,10 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed bottom-20 sm:bottom-24 right-3 sm:right-6 left-3 sm:left-auto z-[150] w-[calc(100vw-1.5rem)] sm:w-[400px] max-w-[calc(100vw-1.5rem)] sm:max-w-[400px] bg-[#0D1117] border border-white/10 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden animate-fade-in-up text-white"
+      className="fixed bottom-28 sm:bottom-[138px] right-3 sm:right-6 left-3 sm:left-auto z-[150] w-[calc(100vw-1.5rem)] sm:w-[400px] max-w-[calc(100vw-1.5rem)] sm:max-w-[400px] bg-[#0D1117] border border-white/10 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden animate-fade-in-up text-white"
       style={{
-        height: "min(460px, calc(100vh - 120px))",
-        maxHeight: "calc(100vh - 120px)",
+        height: "min(500px, calc(100vh - 160px))",
+        maxHeight: "calc(100vh - 160px)",
         fontFamily: "'Inter', sans-serif"
       }}
     >
@@ -122,8 +127,17 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
         style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
       >
         <div className="flex items-center gap-2.5 sm:gap-3 pr-2 min-w-0 flex-1">
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0">
-            <FaRobot className="text-base sm:text-lg" />
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0 overflow-hidden p-1">
+            <img
+              src="/bot.gif"
+              alt="Goye AI"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                if (e.currentTarget.nextSibling) e.currentTarget.nextSibling.style.display = 'block';
+              }}
+              className="w-full h-full object-contain select-none pointer-events-none"
+            />
+            <FaRobot style={{ display: 'none' }} className="text-base sm:text-lg" />
           </div>
           <div className="min-w-0 flex-1">
             <h3 className="text-xs sm:text-sm font-bold text-white leading-tight truncate">AI Assistant</h3>
@@ -145,15 +159,24 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
       </div>
 
       {/* ================= CHAT AREA ================= */}
-      <div className="flex-1 overflow-y-auto min-h-0 p-3 sm:p-4 space-y-3 sm:space-y-4 bg-[#0D1117] gy-no-scrollbar overflow-x-hidden relative z-10">
+      <div ref={chatAreaRef} className="flex-1 overflow-y-auto min-h-0 p-3 sm:p-4 space-y-3 sm:space-y-4 bg-[#0D1117] gy-no-scrollbar overflow-x-hidden relative z-10">
         {messages.length === 0 ? (
           /* ================= WELCOME SCREEN ================= */
-          <div className="h-full flex flex-col items-center justify-center text-center p-1 sm:p-2 my-auto">
-            <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] mb-2 sm:mb-3 shadow-[0_4px_20px_rgba(37,211,102,0.15)] shrink-0">
-              <FaRobot className="text-xl sm:text-2xl" />
+          <div className="flex flex-col items-center justify-start text-center p-1 sm:p-2 w-full pt-1 pb-2">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-b from-[#1b2733] to-[#0e1620] border-2 border-[#25D366]/40 flex items-center justify-center text-[#25D366] mb-2 sm:mb-3 shadow-[0_8px_30px_rgba(0,0,0,0.6),0_0_20px_rgba(37,211,102,0.25)] shrink-0 overflow-hidden p-1">
+              <img
+                src="/bot.gif"
+                alt="Goye AI"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  if (e.currentTarget.nextSibling) e.currentTarget.nextSibling.style.display = 'block';
+                }}
+                className="w-full h-full object-contain select-none pointer-events-none drop-shadow"
+              />
+              <FaRobot style={{ display: 'none' }} className="text-3xl sm:text-4xl text-[#25D366]" />
             </div>
-            <h2 className="text-base sm:text-lg font-extrabold text-white mb-1">Hi, I'm Goye AI 👋</h2>
-            <p className="text-[11px] sm:text-xs text-[#9AA4AF] max-w-[280px] mb-3 sm:mb-5 leading-relaxed">
+            <h2 className="text-sm sm:text-base font-extrabold text-white mb-0.5 sm:mb-1">Hi, I'm Goye AI 👋</h2>
+            <p className="text-[11px] sm:text-xs text-[#9AA4AF] max-w-[280px] mb-2.5 sm:mb-4 leading-relaxed">
               I can help you with everything related to Goye WhatsApp Bulk Messaging.
             </p>
 

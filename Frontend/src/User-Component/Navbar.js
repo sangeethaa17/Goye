@@ -1825,87 +1825,129 @@ export default function Navbar() {
         />
       )}
 
-      {/* Ultimate Large Glowing Floating AI Assistant Button */}
+      {/* Enhanced Premium Floating Goye AI Assistant Trigger Widget */}
       {(isLoggedIn || isFreeUserLoggedIn) && !isAdminPage && (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] group flex flex-col items-center justify-center">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] group flex items-center select-none">
           <style>{`
-            @keyframes gyAiFloatLarge {
+            @keyframes gyAiBreathe {
               0%, 100% { transform: translateY(0px); }
-              50% { transform: translateY(-6px); }
+              50%      { transform: translateY(-5px); }
             }
-            @keyframes gySpinRing {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-            @keyframes gyPulseGlow {
-              0%, 100% { opacity: 0.85; transform: scale(1); }
-              50% { opacity: 1; transform: scale(1.05); }
+            @keyframes gyAmbientPulse {
+              0%, 100% { opacity: 0.45; transform: scale(0.95); }
+              50%      { opacity: 0.8; transform: scale(1.05); }
             }
             @keyframes gySparkleFloat {
-              0%, 100% { opacity: 0.2; transform: translateY(0) scale(0.8); }
-              50% { opacity: 1; transform: translateY(-6px) scale(1.2); }
+              0%, 100% { opacity: 0.25; transform: translateY(0px) scale(0.85); }
+              50%      { opacity: 1;    transform: translateY(-5px) scale(1.2); }
+            }
+            .gy-ai-floating {
+              animation: gyAiBreathe 4s ease-in-out infinite;
+            }
+            .gy-ai-ambient {
+              animation: gyAmbientPulse 3.5s ease-in-out infinite;
             }
           `}</style>
 
-          {/* Premium Hover Tooltip (Hidden on mobile, visible on desktop) */}
-          <div className="hidden sm:block absolute right-28 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 pointer-events-none z-50">
-            <div className="bg-[#0D1117]/95 border-2 border-[#25D366]/50 text-white rounded-2xl px-4 py-2.5 shadow-[0_15px_45px_rgba(0,0,0,0.9),0_0_20px_rgba(37,211,102,0.3)] backdrop-blur-xl flex flex-col gap-0.5 whitespace-nowrap relative">
-              <div className="flex items-center gap-2 font-extrabold text-sm text-white">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-ping"></span>
-                Goye AI Assistant
+          {/* Premium Glassmorphism Label Bubble (Appears smoothly on hover/interaction, hidden by default) */}
+          {!botOpen && (
+            <div
+              onClick={() => setBotOpen(true)}
+              className="hidden sm:flex items-center mr-3.5 cursor-pointer relative opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-out"
+            >
+              <div className="relative bg-[#0c1310]/95 backdrop-blur-2xl border border-[#25D366]/40 hover:border-[#25D366]/80 rounded-2xl px-4 py-2.5 shadow-[0_12px_36px_rgba(0,0,0,0.8),0_0_20px_rgba(37,211,102,0.18)] hover:shadow-[0_16px_45px_rgba(0,0,0,0.9),0_0_30px_rgba(37,211,102,0.3)] transition-all duration-300 flex flex-col gap-1 whitespace-nowrap">
+                {/* Top Subtle Emerald Glow Line */}
+                <div className="absolute top-0 left-4 right-4 h-[1.5px] bg-gradient-to-r from-transparent via-[#25D366]/60 to-transparent pointer-events-none" />
+
+                {/* Header row: Subtle glowing AI activity pulse + Title */}
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5 shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-80"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#25D366] shadow-[0_0_8px_#25D366]"></span>
+                  </span>
+                  <span className="text-[13px] sm:text-sm font-extrabold text-white tracking-wide flex items-center gap-1.5">
+                    Goye AI Assistant
+                  </span>
+                </div>
+
+                {/* Subtitle */}
+                <span className="text-xs text-[#9AA4AF] font-medium tracking-normal pl-4.5">
+                  Ask anything • Replies instantly
+                </span>
+
+                {/* Seamless Connecting Arrow Pointer */}
+                <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3.5 h-3.5 bg-[#0c1310] border-t border-r border-[#25D366]/40 rotate-45 backdrop-blur-2xl pointer-events-none group-hover:border-[#25D366]/80 transition-colors" />
               </div>
-              <span className="text-xs text-[#9AA4AF] font-medium">Ask anything • Replies instantly</span>
-              <div className="absolute top-1/2 -right-2 -translate-y-1/2 w-4 h-4 bg-[#0D1117] border-t-2 border-r-2 border-[#25D366]/50 rotate-45"></div>
             </div>
-          </div>
+          )}
 
-          {/* Ground Radial Glow Shadow */}
-          <div className="w-12 h-3 sm:w-20 sm:h-4 rounded-full bg-[#25D366]/50 blur-lg sm:blur-xl absolute -bottom-1.5 transition-all duration-300 group-hover:w-16 sm:group-hover:w-24 group-hover:bg-[#25D366]/70"></div>
+          {/* Avatar Container with Floating & Soft Ambient Glow */}
+          <div className="relative flex items-center justify-center gy-ai-floating">
+            {/* Cute Floating Sparkle Particles around the Avatar */}
+            {!botOpen && (
+              <>
+                <span
+                  className="absolute -top-1 -left-2 text-xs sm:text-sm text-amber-300 pointer-events-none drop-shadow-[0_0_8px_rgba(252,211,77,0.85)] z-20"
+                  style={{ animation: 'gySparkleFloat 3s ease-in-out infinite' }}
+                >
+                  ✨
+                </span>
+                <span
+                  className="absolute -bottom-1 -right-1 text-[11px] sm:text-xs text-emerald-300 pointer-events-none drop-shadow-[0_0_8px_rgba(110,231,183,0.85)] z-20"
+                  style={{ animation: 'gySparkleFloat 2.6s ease-in-out infinite 0.8s' }}
+                >
+                  💫
+                </span>
+                <span
+                  className="absolute top-1/2 -left-3 sm:-left-3.5 text-[10px] sm:text-xs text-green-300 pointer-events-none drop-shadow-[0_0_8px_rgba(134,239,172,0.85)] z-20"
+                  style={{ animation: 'gySparkleFloat 3.4s ease-in-out infinite 1.5s' }}
+                >
+                  ⭐
+                </span>
+              </>
+            )}
 
-          {/* Floating Sparkle Particles */}
-          <span className="absolute -top-2 -left-1 sm:-top-3 sm:-left-2 text-xs sm:text-sm text-amber-300 pointer-events-none" style={{ animation: 'gySparkleFloat 3s ease-in-out infinite' }}>✨</span>
-          <span className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 text-[10px] sm:text-xs text-emerald-300 pointer-events-none" style={{ animation: 'gySparkleFloat 2.5s ease-in-out infinite 0.8s' }}>💫</span>
-          <span className="absolute top-1/2 -left-3 sm:-left-4 text-[10px] sm:text-xs text-green-300 pointer-events-none" style={{ animation: 'gySparkleFloat 3.5s ease-in-out infinite 1.5s' }}>⭐</span>
+            {/* Soft Ambient Glow behind the avatar */}
+            <div className="absolute -inset-3 sm:-inset-4 rounded-full bg-[#25D366]/30 blur-2xl pointer-events-none transition-all duration-300 ease-out group-hover:bg-[#25D366]/55 group-hover:blur-3xl gy-ai-ambient" />
 
-          {/* Main Button */}
-          <button
-            onClick={() => setBotOpen(!botOpen)}
-            className="relative w-14 h-14 sm:w-28 sm:h-28 rounded-full p-1 sm:p-1.5 bg-[#0D1117]/95 backdrop-blur-2xl border-2 sm:border-4 border-[#0D1117] shadow-[0_0_25px_rgba(37,211,102,0.4),0_10px_20px_rgba(0,0,0,0.6)] sm:shadow-[0_0_50px_rgba(37,211,102,0.5),0_0_20px_rgba(37,211,102,0.3),0_15px_30px_rgba(0,0,0,0.7)] hover:shadow-[0_0_70px_rgba(37,211,102,0.8)] hover:scale-105 sm:hover:scale-[1.15] active:scale-90 transition-all duration-300 ease-out cursor-pointer flex items-center justify-center overflow-visible"
-            style={{ animation: 'gyAiFloatLarge 4s ease-in-out infinite, gyPulseGlow 3s ease-in-out infinite' }}
-            aria-label="Toggle Goye AI Assistant"
-          >
-            {/* Rotating Outer Glowing Gradient Ring */}
-            <span
-              className="absolute -inset-1 sm:-inset-1.5 rounded-full bg-gradient-to-r from-[#25D366] via-emerald-400 via-teal-300 to-[#25D366] blur-xs sm:blur-sm opacity-90 group-hover:opacity-100 transition-opacity"
-              style={{ animation: 'gySpinRing 6s linear infinite' }}
-            ></span>
+            {/* Ground Shadow */}
+            <div className="absolute -bottom-2 w-20 sm:w-24 h-4 rounded-full bg-[#25D366]/25 blur-lg pointer-events-none transition-all duration-300 group-hover:bg-[#25D366]/50" />
 
-            {/* Inner Dark Mask Ring */}
-            <span className="absolute inset-0.5 rounded-full bg-[#0D1117]"></span>
-
-            {/* Inner WhatsApp-Style Gradient Core Button */}
-            <div className="relative w-full h-full rounded-full bg-gradient-to-tr from-[#075E54] via-[#128C7E] to-[#25D366] flex items-center justify-center text-white border sm:border-2 border-white/40 shadow-2xl overflow-hidden">
-              {/* Glossy Top Glass Lighting */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/45 via-white/10 to-transparent pointer-events-none"></div>
-
+            {/* Main Interactive Bot Button - Large, Crisp, Prominent */}
+            <button
+              onClick={() => setBotOpen(!botOpen)}
+              type="button"
+              className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2.5px] bg-gradient-to-tr from-[#25D366] via-[#34E38A] to-[#128C7E] shadow-[0_12px_36px_rgba(0,0,0,0.8),0_0_28px_rgba(37,211,102,0.35)] hover:shadow-[0_16px_45px_rgba(0,0,0,0.9),0_0_42px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 ease-out cursor-pointer flex items-center justify-center overflow-hidden group/btn"
+              aria-label="Toggle Goye AI Assistant"
+            >
               {botOpen ? (
-                <FiX className="relative z-10 text-white drop-shadow-lg transition-transform duration-300 rotate-0 group-hover:rotate-90 shrink-0 text-xl sm:text-3xl" />
+                <div className="w-full h-full rounded-full bg-[#0D1117]/95 flex items-center justify-center text-white backdrop-blur-md transition-all">
+                  <FiX className="text-3xl sm:text-4xl text-white transition-transform duration-300 rotate-0 group-hover/btn:rotate-90" />
+                </div>
               ) : (
-                <div className="relative z-10 flex items-center justify-center">
-                  <FaRobot className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110 text-2xl sm:text-4xl" />
-                  <span className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 text-xs sm:text-sm text-amber-300 animate-bounce drop-shadow">✨</span>
+                <div className="relative w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-gradient-to-b from-[#14231E] via-[#0E1714] to-[#080D0B] border border-black/40">
+                  <img
+                    src="/bot.gif"
+                    alt="Goye AI Assistant"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      if (e.currentTarget.nextSibling) e.currentTarget.nextSibling.style.display = 'block';
+                    }}
+                    className="w-full h-full object-cover scale-[1.38] translate-y-1.5 select-none pointer-events-none transition-transform duration-300 group-hover/btn:scale-[1.45]"
+                  />
+                  <FaRobot style={{ display: 'none' }} className="text-[#25D366] text-4xl" />
                 </div>
               )}
-            </div>
+            </button>
 
-            {/* Live Online Pulse Dot Badge */}
+            {/* AI Active Status Dot badge on Avatar (only when closed) */}
             {!botOpen && (
-              <span className="absolute top-0 right-0 sm:top-1 sm:right-1 flex h-3.5 w-3.5 sm:h-5 sm:w-5 z-30">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-85"></span>
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 sm:h-5 sm:w-5 bg-[#25D366] border border-white/20 sm:border-2 border-[#0D1117] shadow-md"></span>
+              <span className="absolute top-1 right-1 flex h-3.5 w-3.5 sm:h-4 sm:w-4 pointer-events-none z-10">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-80"></span>
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 sm:h-4 sm:w-4 bg-[#25D366] border-2 border-[#0c1310] shadow-[0_0_10px_#25D366]"></span>
               </span>
             )}
-          </button>
+          </div>
         </div>
       )}
 
