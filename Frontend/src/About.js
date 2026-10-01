@@ -716,8 +716,8 @@ export default function About() {
                                     'Real-Time Live Delivery Reports',
                                     'Get 10 Credits Daily',
                                     'Direct Help & Support Button',
-                                    '24/7 Admin Support'
-                                ]
+                                    '24/7 Admin Support',
+]
                             },
                             {
                                 key: 'oneDay',
@@ -744,8 +744,14 @@ export default function About() {
                                     'Instant Campaign Launch for Scraped Leads',
                                    'Manual Delay Setting',
                                      'Automatic AI Response ',
-                                    'Admin Support'
-                                ]
+                                    'Multi-Platform Scraping',
+                                    'City/Location Targeting',
+                                    'Verified Business Email Extraction',
+                                    'Complete Contact Details',
+                                    'Easy Pause & Resume Controls',
+                                    'Direct Social Media Profile Links',
+                                    'Admin Support',
+]
                             },
                             {
                                 key: 'oneWeek',
@@ -772,8 +778,14 @@ export default function About() {
                                     'Instant Campaign Launch for Scraped Leads',
                                     'Manual Delay Setting',
                                      'Automatic AI Response ',
-                                    '24/7 Admin Support'
-                                ]
+                                    'Multi-Platform Scraping',
+                                    'City/Location Targeting',
+                                    'Verified Business Email Extraction',
+                                    'Complete Contact Details',
+                                    'Easy Pause & Resume Controls',
+                                    'Direct Social Media Profile Links',
+                                    '24/7 Admin Support',
+]
                             },
                             {
                                 key: 'fifteenDays',
@@ -800,8 +812,14 @@ export default function About() {
                                     'Instant Campaign Launch for Scraped Leads',
                                     'Manual Delay Setting',
                                      'Automatic AI Response ',
-                                    '24/7 Admin Support'
-                                ]
+                                    'Multi-Platform Scraping',
+                                    'City/Location Targeting',
+                                    'Verified Business Email Extraction',
+                                    'Complete Contact Details',
+                                    'Easy Pause & Resume Controls',
+                                    'Direct Social Media Profile Links',
+                                    '24/7 Admin Support',
+]
                             },
                             {
                                 key: 'oneMonth',
@@ -829,8 +847,14 @@ export default function About() {
                                     'Instant Campaign Launch for Scraped Leads',
                                     'Manual Delay Setting',
                                      'Automatic AI Response ',
-                                    'Priority Admin Support'
-                                ]
+                                    'Multi-Platform Scraping',
+                                    'City/Location Targeting',
+                                    'Verified Business Email Extraction',
+                                    'Complete Contact Details',
+                                    'Easy Pause & Resume Controls',
+                                    'Direct Social Media Profile Links',
+                                    'Priority Admin Support',
+]
                             },
                             {
                                 key: 'threeMonths',
@@ -857,8 +881,14 @@ export default function About() {
                                     'Instant Campaign Launch for Scraped Leads',
                                     'Manual Delay Setting',
                                      'Automatic AI Response ',
-                                    '24/7 Admin Support'
-                                ]
+                                    'Multi-Platform Scraping',
+                                    'City/Location Targeting',
+                                    'Verified Business Email Extraction',
+                                    'Complete Contact Details',
+                                    'Easy Pause & Resume Controls',
+                                    'Direct Social Media Profile Links',
+                                    '24/7 Admin Support',
+]
                             },
                             {
                                 key: 'sixMonths',
@@ -885,8 +915,14 @@ export default function About() {
                                     'Instant Campaign Launch for Scraped Leads',
                                     'Manual Delay Setting',
                                      'Automatic AI Response ',
-                                    '24/7 Admin Support'
-                                ]
+                                    'Multi-Platform Scraping',
+                                    'City/Location Targeting',
+                                    'Verified Business Email Extraction',
+                                    'Complete Contact Details',
+                                    'Easy Pause & Resume Controls',
+                                    'Direct Social Media Profile Links',
+                                    '24/7 Admin Support',
+]
                             },
                             {
                                 key: 'oneYear',
@@ -914,8 +950,14 @@ export default function About() {
                                     'Instant Campaign Launch for Scraped Leads',
                                     'Manual Delay Setting',
                                      'Automatic AI Response ',
-                                    'VIP Admin Support'
-                                ]
+                                    'Multi-Platform Scraping',
+                                    'City/Location Targeting',
+                                    'Verified Business Email Extraction',
+                                    'Complete Contact Details',
+                                    'Easy Pause & Resume Controls',
+                                    'Direct Social Media Profile Links',
+                                    'VIP Admin Support',
+]
                             },
                             {
                                 key: 'eighteenMonths',
@@ -942,8 +984,14 @@ export default function About() {
                                     'Instant Campaign Launch for Scraped Leads',
                                     'Manual Delay Setting',
                                      'Automatic AI Response ',
-                                    '24/7 VIP Admin Support'
-                                ]
+                                    'Multi-Platform Scraping',
+                                    'City/Location Targeting',
+                                    'Verified Business Email Extraction',
+                                    'Complete Contact Details',
+                                    'Easy Pause & Resume Controls',
+                                    'Direct Social Media Profile Links',
+                                    '24/7 VIP Admin Support',
+]
                             }
                         ]
                         .filter(plan => activeCategory === 'all' || plan.category === activeCategory)

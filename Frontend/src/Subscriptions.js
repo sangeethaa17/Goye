@@ -457,7 +457,7 @@ export default function Subscriptions() {
                                 'Real-Time Live Delivery Reports',
                                 'Get 10 Credits Daily',
                                 'Direct Help & Support Button',
-                                '24/7 Admin Support'
+                                '24/7 Admin Support',
                             ]
                         },
                         {
@@ -485,8 +485,13 @@ export default function Subscriptions() {
                                 'Instant Campaign Launch for Scraped Leads',
                                 'Manual Delay Setting',
                                 'Automatic AI Response',
+                                'Multi-Platform Scraping',
+                                'City/Location Targeting',
+                                'Verified Business Email Extraction',
+                                'Complete Contact Details',
+                                'Easy Pause & Resume Controls',
+                                'Direct Social Media Profile Links',
                                 'Admin Support',
-                                
                             ]
                         },
                         {
@@ -514,7 +519,13 @@ export default function Subscriptions() {
                                 'Instant Campaign Launch for Scraped Leads',
                                         'Manual Delay Setting',
                                 'Automatic AI Response',
-                                '24/7 Admin Support'
+                                'Multi-Platform Scraping',
+                                'City/Location Targeting',
+                                'Verified Business Email Extraction',
+                                'Complete Contact Details',
+                                'Easy Pause & Resume Controls',
+                                'Direct Social Media Profile Links',
+                                '24/7 Admin Support',
                             ]
                         },
                         {
@@ -542,7 +553,13 @@ export default function Subscriptions() {
                                 'Instant Campaign Launch for Scraped Leads',
                                         'Manual Delay Setting',
                                 'Automatic AI Response',
-                                '24/7 Admin Support'
+                                'Multi-Platform Scraping',
+                                'City/Location Targeting',
+                                'Verified Business Email Extraction',
+                                'Complete Contact Details',
+                                'Easy Pause & Resume Controls',
+                                'Direct Social Media Profile Links',
+                                '24/7 Admin Support',
                             ]
                         },
                         {
@@ -571,7 +588,13 @@ export default function Subscriptions() {
                                 'Instant Campaign Launch for Scraped Leads',
                                         'Manual Delay Setting',
                                 'Automatic AI Response',
-                                'Priority Admin Support'
+                                'Multi-Platform Scraping',
+                                'City/Location Targeting',
+                                'Verified Business Email Extraction',
+                                'Complete Contact Details',
+                                'Easy Pause & Resume Controls',
+                                'Direct Social Media Profile Links',
+                                'Priority Admin Support',
                             ]
                         },
                         {
@@ -599,7 +622,13 @@ export default function Subscriptions() {
                                 'Instant Campaign Launch for Scraped Leads',
                                         'Manual Delay Setting',
                                 'Automatic AI Response',
-                                '24/7 Admin Support'
+                                'Multi-Platform Scraping',
+                                'City/Location Targeting',
+                                'Verified Business Email Extraction',
+                                'Complete Contact Details',
+                                'Easy Pause & Resume Controls',
+                                'Direct Social Media Profile Links',
+                                '24/7 Admin Support',
                             ]
                         },
                         {
@@ -627,7 +656,13 @@ export default function Subscriptions() {
                                 'Instant Campaign Launch for Scraped Leads',
                                         'Manual Delay Setting',
                                 'Automatic AI Response',
-                                '24/7 Admin Support'
+                                'Multi-Platform Scraping',
+                                'City/Location Targeting',
+                                'Verified Business Email Extraction',
+                                'Complete Contact Details',
+                                'Easy Pause & Resume Controls',
+                                'Direct Social Media Profile Links',
+                                '24/7 Admin Support',
                             ]
                         },
                         {
@@ -656,7 +691,13 @@ export default function Subscriptions() {
                                 'Instant Campaign Launch for Scraped Leads',
                                         'Manual Delay Setting',
                                 'Automatic AI Response',
-                                'VIP Admin Support'
+                                'Multi-Platform Scraping',
+                                'City/Location Targeting',
+                                'Verified Business Email Extraction',
+                                'Complete Contact Details',
+                                'Easy Pause & Resume Controls',
+                                'Direct Social Media Profile Links',
+                                'VIP Admin Support',
                             ]
                         },
                         {
@@ -684,7 +725,13 @@ export default function Subscriptions() {
                                 'Instant Campaign Launch for Scraped Leads',
                                         'Manual Delay Setting',
                                 'Automatic AI Response',
-                                '24/7 VIP Admin Support'
+                                'Multi-Platform Scraping',
+                                'City/Location Targeting',
+                                'Verified Business Email Extraction',
+                                'Complete Contact Details',
+                                'Easy Pause & Resume Controls',
+                                'Direct Social Media Profile Links',
+                                '24/7 VIP Admin Support',
                             ]
                         }
                     ]

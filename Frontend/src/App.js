@@ -1351,7 +1351,7 @@ function CreditLimitGuard({ children }) {
                           'Real-Time Live Delivery Reports',
                           'Get 10 Credits Daily',
                           'Direct Help & Support Button',
-                          '24/7 Admin Support'
+                          '24/7 Admin Support',
                         ]
                       },
                       {
@@ -1377,7 +1377,13 @@ function CreditLimitGuard({ children }) {
                           'Seamless Group-to-Excel Data Export',
                           'Targeted City & Category Business Finder',
                           'Instant Campaign Launch for Scraped Leads',
-                          'Admin Support'
+                          'Multi-Platform Scraping',
+                          'City/Location Targeting',
+                          'Verified Business Email Extraction',
+                          'Complete Contact Details',
+                          'Easy Pause & Resume Controls',
+                          'Direct Social Media Profile Links',
+                          'Admin Support',
                         ]
                       },
                       {
@@ -1403,7 +1409,13 @@ function CreditLimitGuard({ children }) {
                           'Seamless Group-to-Excel Data Export',
                           'Targeted City & Category Business Finder',
                           'Instant Campaign Launch for Scraped Leads',
-                          '24/7 Admin Support'
+                          'Multi-Platform Scraping',
+                          'City/Location Targeting',
+                          'Verified Business Email Extraction',
+                          'Complete Contact Details',
+                          'Easy Pause & Resume Controls',
+                          'Direct Social Media Profile Links',
+                          '24/7 Admin Support',
                         ]
                       },
                       {
@@ -1429,7 +1441,13 @@ function CreditLimitGuard({ children }) {
                           'Seamless Group-to-Excel Data Export',
                           'Targeted City & Category Business Finder',
                           'Instant Campaign Launch for Scraped Leads',
-                          '24/7 Admin Support'
+                          'Multi-Platform Scraping',
+                          'City/Location Targeting',
+                          'Verified Business Email Extraction',
+                          'Complete Contact Details',
+                          'Easy Pause & Resume Controls',
+                          'Direct Social Media Profile Links',
+                          '24/7 Admin Support',
                         ]
                       },
                       {
@@ -1456,7 +1474,13 @@ function CreditLimitGuard({ children }) {
                           'Seamless Group-to-Excel Data Export',
                           'Targeted City & Category Business Finder',
                           'Instant Campaign Launch for Scraped Leads',
-                          'Priority Admin Support'
+                          'Multi-Platform Scraping',
+                          'City/Location Targeting',
+                          'Verified Business Email Extraction',
+                          'Complete Contact Details',
+                          'Easy Pause & Resume Controls',
+                          'Direct Social Media Profile Links',
+                          'Priority Admin Support',
                         ]
                       },
                       {
@@ -1482,7 +1506,13 @@ function CreditLimitGuard({ children }) {
                           'Seamless Group-to-Excel Data Export',
                           'Targeted City & Category Business Finder',
                           'Instant Campaign Launch for Scraped Leads',
-                          '24/7 Admin Support'
+                          'Multi-Platform Scraping',
+                          'City/Location Targeting',
+                          'Verified Business Email Extraction',
+                          'Complete Contact Details',
+                          'Easy Pause & Resume Controls',
+                          'Direct Social Media Profile Links',
+                          '24/7 Admin Support',
                         ]
                       },
                       {
@@ -1508,7 +1538,13 @@ function CreditLimitGuard({ children }) {
                           'Seamless Group-to-Excel Data Export',
                           'Targeted City & Category Business Finder',
                           'Instant Campaign Launch for Scraped Leads',
-                          '24/7 Admin Support'
+                          'Multi-Platform Scraping',
+                          'City/Location Targeting',
+                          'Verified Business Email Extraction',
+                          'Complete Contact Details',
+                          'Easy Pause & Resume Controls',
+                          'Direct Social Media Profile Links',
+                          '24/7 Admin Support',
                         ]
                       },
                       {
@@ -1535,7 +1571,13 @@ function CreditLimitGuard({ children }) {
                           'Seamless Group-to-Excel Data Export',
                           'Targeted City & Category Business Finder',
                           'Instant Campaign Launch for Scraped Leads',
-                          'VIP Admin Support'
+                          'Multi-Platform Scraping',
+                          'City/Location Targeting',
+                          'Verified Business Email Extraction',
+                          'Complete Contact Details',
+                          'Easy Pause & Resume Controls',
+                          'Direct Social Media Profile Links',
+                          'VIP Admin Support',
                         ]
                       },
                       {
@@ -1561,7 +1603,13 @@ function CreditLimitGuard({ children }) {
                           'Seamless Group-to-Excel Data Export',
                           'Targeted City & Category Business Finder',
                           'Instant Campaign Launch for Scraped Leads',
-                          '24/7 VIP Admin Support'
+                          'Multi-Platform Scraping',
+                          'City/Location Targeting',
+                          'Verified Business Email Extraction',
+                          'Complete Contact Details',
+                          'Easy Pause & Resume Controls',
+                          'Direct Social Media Profile Links',
+                          '24/7 VIP Admin Support',
                         ]
                       }
                     ]
