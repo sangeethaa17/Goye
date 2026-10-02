@@ -423,21 +423,7 @@ export default function GroupManagement() {
     }
   };
 
-  useEffect(() => {
-    const email = localStorage.getItem("email") || localStorage.getItem("userEmail") || localStorage.getItem("freeUserEmail") || "user";
-    try {
-      const stored = localStorage.getItem(`goye_imported_contacts_${email}`);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          const cleaned = cleanAndNormalizeContactList(parsed);
-          setContacts(cleaned);
-          setContactsFetched(true);
-          localStorage.setItem(`goye_imported_contacts_${email}`, JSON.stringify(cleaned));
-        }
-      }
-    } catch (_) {}
-  }, []);
+  // Contacts are only restored when WhatsApp session is verified as connected
 
   useEffect(() => {
     const socket = whatsappSocket;
@@ -488,6 +474,14 @@ export default function GroupManagement() {
       const isReady = !!(data && (data.connected || data.status === "ready" || data.status === "connected"));
       setConnected(isReady);
       setCheckingStatus(false);
+      if (!isReady) {
+        setContacts([]);
+        setContactsFetched(false);
+        setSelectedContacts(new Set());
+        setGroups([]);
+        setGroupsFetched(false);
+        setSelectedGroups(new Set());
+      }
     };
 
     socket.on("connect", registerAndCheck);
@@ -763,7 +757,7 @@ export default function GroupManagement() {
           >
             <FiUsers size={16} className="shrink-0" />
             <span>Groups</span>
-            {groups.length > 0 && (
+            {connected && groups.length > 0 && (
               <span className={`px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-semibold ${
                 activeTab === "groups" ? "bg-black/20 text-black" : "bg-white/10 text-white/80"
               }`}>
@@ -789,7 +783,7 @@ export default function GroupManagement() {
           >
             <FiUser size={16} className="shrink-0" />
             <span>Contacts</span>
-            {contacts.length > 0 && (
+            {connected && contacts.length > 0 && (
               <span className={`px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-semibold ${
                 activeTab === "contacts" ? "bg-black/20 text-black" : "bg-white/10 text-white/80"
               }`}>
