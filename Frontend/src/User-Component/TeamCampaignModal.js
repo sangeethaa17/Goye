@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaUsers, FaCopy, FaWhatsapp, FaTimes, FaCheckCircle, FaExclamationTriangle, FaShareAlt } from 'react-icons/fa';
+import { API_BASE_URL } from '../config';
 
 export default function TeamCampaignModal({ contacts = [], messageText = '', mediaFile = null, onClose, onCampaignCreated }) {
     const getLeaderEmail = () => {
@@ -14,7 +15,7 @@ export default function TeamCampaignModal({ contacts = [], messageText = '', med
     };
     const leaderEmail = getLeaderEmail();
     const [title, setTitle] = useState('Bulk Broadcast Team Campaign');
-    const [splitSize, setSplitSize] = useState(100);
+    const [splitSize, setSplitSize] = useState('');
     const [includeLeader, setIncludeLeader] = useState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
@@ -22,11 +23,17 @@ export default function TeamCampaignModal({ contacts = [], messageText = '', med
     const [copied, setCopied] = useState(false);
 
     const totalContacts = contacts.length;
-    const estimatedMembersNeeded = Math.ceil(totalContacts / (splitSize || 100));
+    const estimatedMembersNeeded = splitSize && Number(splitSize) > 0 ? Math.ceil(totalContacts / Number(splitSize)) : '-';
 
     const handleCreate = async () => {
         if (!title.trim()) {
             setErrorMsg('Please enter a campaign title.');
+            return;
+        }
+        if (!splitSize || Number(splitSize) <= 0 || isNaN(Number(splitSize))) {
+            const msg = 'Please enter how many messages each person should send.';
+            setErrorMsg(msg);
+            alert(msg);
             return;
         }
         if (!contacts || contacts.length === 0) {
@@ -65,7 +72,7 @@ export default function TeamCampaignModal({ contacts = [], messageText = '', med
                 }
             }
 
-            const response = await fetch('https://goyeorg.onrender.com/api/team-campaign/create', {
+            const response = await fetch(`${API_BASE_URL}/api/team-campaign/create`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -130,8 +137,8 @@ export default function TeamCampaignModal({ contacts = [], messageText = '', med
     };
 
     return (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[9999] p-2 sm:p-4 animate-fade-in">
-            <div className="bg-[#0f172a] border border-[#1e293b] rounded-2xl sm:rounded-3xl p-5 sm:p-8 w-full max-w-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] text-gray-100 relative max-h-[92vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center z-[200000] p-3 sm:p-4 animate-fade-in overflow-y-auto">
+            <div className="bg-[#0f172a] border border-[#1e293b] rounded-2xl sm:rounded-3xl p-5 sm:p-8 w-full max-w-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] text-gray-100 relative max-h-[90vh] my-auto overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                 {/* Decorative background glow */}
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
                 <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -191,7 +198,8 @@ export default function TeamCampaignModal({ contacts = [], messageText = '', med
                                     max={totalContacts}
                                     value={splitSize}
                                     onChange={(e) => setSplitSize(e.target.value)}
-                                    className="w-full px-4 py-3 sm:px-5 sm:py-4 bg-[#1e293b] border border-[#334155] rounded-xl sm:rounded-2xl text-sm sm:text-base text-white outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all shadow-inner"
+                                    placeholder="Enter contacts per person (e.g. 50, 100)"
+                                    className="w-full px-4 py-3 sm:px-5 sm:py-4 bg-[#1e293b] border border-[#334155] rounded-xl sm:rounded-2xl text-sm sm:text-base text-white placeholder-gray-500 outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all shadow-inner"
                                 />
                             </div>
 

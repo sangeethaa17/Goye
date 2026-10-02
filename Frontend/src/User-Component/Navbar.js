@@ -9,6 +9,7 @@ import { useNotifications } from "../context/NotificationContext";
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const isJoinTeamPage = location.pathname.includes('/join-team') || location.pathname.includes('/join_team');
   const { notifications, unreadCount, markAsRead, credits: contextCredits } = useNotifications();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -540,6 +541,7 @@ export default function Navbar() {
    * view in place, while a normal navigate() handles the cross-page case.
    */
   const handleHomeClick = () => {
+    if (isJoinTeamPage) return;
     setMobileOpen(false);
     setActiveSubView("home");
 
@@ -651,6 +653,7 @@ export default function Navbar() {
   };
 
   const goTo = (href) => {
+    if (isJoinTeamPage) return;
     window.scrollTo({ top: 0, behavior: "instant" });
     navigate(href);
     setMobileOpen(false);
@@ -659,6 +662,7 @@ export default function Navbar() {
   // Routes a nav-link click either to the Messages panel, a Home
   // reset, a frozen popup trigger, pro plan modal, or a normal route navigation.
   const handleNavLinkClick = (link) => {
+    if (isJoinTeamPage) return;
     if (link.isProOnly && !isSubscribedUser) {
       goTo(link.href);
       return;
@@ -768,7 +772,9 @@ export default function Navbar() {
         <div className="max-w-[1550px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Logo */}
           <div
-            className="gy-logo-float text-xl sm:text-2xl font-extrabold shrink-0 cursor-pointer flex items-center gap-2.5 group mr-2 lg:mr-6"
+            className={`gy-logo-float text-xl sm:text-2xl font-extrabold shrink-0 flex items-center gap-2.5 group mr-2 lg:mr-6 ${
+              isJoinTeamPage ? "pointer-events-none cursor-default" : "cursor-pointer"
+            }`}
             onClick={handleHomeClick}
           >
             <img
@@ -787,7 +793,9 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-3.5 lg:gap-5 xl:gap-7 text-xs sm:text-sm font-medium">
+          <ul className={`hidden md:flex items-center gap-3.5 lg:gap-5 xl:gap-7 text-xs sm:text-sm font-medium ${
+            isJoinTeamPage ? "pointer-events-none opacity-40 cursor-not-allowed select-none" : ""
+          }`}>
             {navLinks.map((link) => {
               const isActive = isLinkActive(link);
               const isLocked = link.isRestricted;
@@ -1102,7 +1110,9 @@ export default function Navbar() {
           {/* Right Controls */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto md:ml-0">
             {/* Desktop Controls */}
-            <div className="hidden md:flex items-center gap-2.5">
+            <div className={`hidden md:flex items-center gap-2.5 ${
+              isJoinTeamPage ? "pointer-events-none opacity-40 cursor-not-allowed select-none" : ""
+            }`}>
               {!isAdminPage && !isWhatsappConnected && (
                 <button
                   onClick={handleConnect}
@@ -1375,21 +1385,23 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMobileOpen((prev) => !prev)}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-              className={`md:hidden relative w-9 h-9 flex items-center justify-center rounded-lg transition-all duration-200 ${
-                mobileOpen ? "gy-burger-open" : ""
-              }`}
-              style={{ backgroundColor: "rgba(52,227,138,0.12)" }}
-            >
-              <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
-                <rect className="gy-burger-line gy-burger-line-1" y="0" width="22" height="2.2" rx="1.1" fill="#6CFFB0" />
-                <rect className="gy-burger-line gy-burger-line-2" y="6.9" width="22" height="2.2" rx="1.1" fill="#6CFFB0" />
-                <rect className="gy-burger-line gy-burger-line-3" y="13.8" width="22" height="2.2" rx="1.1" fill="#6CFFB0" />
-              </svg>
-            </button>
+            {!isJoinTeamPage && (
+              <button
+                onClick={() => setMobileOpen((prev) => !prev)}
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
+                className={`md:hidden relative w-9 h-9 flex items-center justify-center rounded-lg transition-all duration-200 ${
+                  mobileOpen ? "gy-burger-open" : ""
+                }`}
+                style={{ backgroundColor: "rgba(52,227,138,0.12)" }}
+              >
+                <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+                  <rect className="gy-burger-line gy-burger-line-1" y="0" width="22" height="2.2" rx="1.1" fill="#6CFFB0" />
+                  <rect className="gy-burger-line gy-burger-line-2" y="6.9" width="22" height="2.2" rx="1.1" fill="#6CFFB0" />
+                  <rect className="gy-burger-line gy-burger-line-3" y="13.8" width="22" height="2.2" rx="1.1" fill="#6CFFB0" />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
 

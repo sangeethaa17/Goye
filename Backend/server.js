@@ -1086,6 +1086,13 @@ io.on("connection", (socket) => {
             if (num && String(num).trim() !== "") {
                 validNumbersCount++;
                 let cleanNum = String(num).replace(/\D/g, '');
+                if (cleanNum.length < 10) {
+                    console.error(`❌ Number ${num} is invalid (less than 10 digits)`);
+                    socket.emit("bulk_progress_update", { status: "failed", number: num, reason: "Invalid phone number (must be at least 10 digits)" });
+                    failedCount++;
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    continue;
+                }
                 if (cleanNum.length === 10) {
                     cleanNum = '91' + cleanNum;
                 }
@@ -1097,7 +1104,7 @@ io.on("connection", (socket) => {
                     let existsOnWA = true;
                     try {
                         const checkNumber = await whatsappClient.onWhatsApp(formattedNumber);
-                        if (checkNumber && checkNumber.length > 0 && !checkNumber[0].exists) {
+                        if (!checkNumber || checkNumber.length === 0 || !checkNumber[0]?.exists) {
                             existsOnWA = false;
                         }
                     } catch (checkErr) {
@@ -1571,6 +1578,11 @@ function scheduleJob(scheduleDoc) {
  
                 validNumbersCount++;
                 let cleanNum = String(num).replace(/\D/g, '');
+                if (cleanNum.length < 10) {
+                    io.emit("bulk_progress_update", { status: "failed", number: num, reason: "Invalid phone number (must be at least 10 digits)" });
+                    failedCount++;
+                    continue;
+                }
                 if (cleanNum.length === 10) {
                     cleanNum = '91' + cleanNum;
                 }

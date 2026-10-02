@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaUsers, FaCheckCircle, FaHourglassHalf, FaExclamationTriangle, FaLock, FaWhatsapp } from 'react-icons/fa';
 import TeamDispatchConsole from './TeamDispatchConsole';
+import { API_BASE_URL } from '../config';
 
 export default function JoinTeamPage() {
     const location = useLocation();
@@ -26,7 +27,7 @@ export default function JoinTeamPage() {
             return;
         }
 
-        fetch(`https://goyeorg.onrender.com/api/team-campaign/join-info/${joinCode}`)
+        fetch(`${API_BASE_URL}/api/team-campaign/join-info/${joinCode}`)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -46,7 +47,7 @@ export default function JoinTeamPage() {
 
         const checkApproval = async () => {
             try {
-                const res = await fetch(`https://goyeorg.onrender.com/api/team-campaign/${joinedMember.campaignId}/lobby`);
+                const res = await fetch(`${API_BASE_URL}/api/team-campaign/${joinedMember.campaignId}/lobby`);
                 const data = await res.json();
                 if (res.ok && data.success && data.members) {
                     const current = data.members.find(m => m.memberEmail === joinedMember.memberEmail || m.memberPhone === joinedMember.memberPhone);
@@ -73,7 +74,7 @@ export default function JoinTeamPage() {
             const cleanPhone = memberPhone.replace(/\D/g, '');
             const effectiveEmail = `${cleanPhone}@goyeteam.com`;
 
-            const res = await fetch('https://goyeorg.onrender.com/api/team-campaign/join-request', {
+            const res = await fetch(`${API_BASE_URL}/api/team-campaign/join-request`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

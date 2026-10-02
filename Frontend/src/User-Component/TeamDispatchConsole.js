@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import QRCode from 'react-qr-code';
 import { FaWhatsapp, FaCheckCircle, FaSpinner, FaLock, FaPaperPlane, FaHourglassHalf, FaSignal, FaTimes } from 'react-icons/fa';
+import { API_BASE_URL } from '../config';
 
-const socket = io("https://goyeorg.onrender.com", {
+const socket = io(API_BASE_URL, {
     reconnection: true,
     reconnectionAttempts: 5,
     reconnectionDelay: 1000,
@@ -28,7 +29,7 @@ export default function TeamDispatchConsole({ memberInfo, campaignInfo }) {
         setLoadingMyContacts(true);
         setShowMyContacts(true);
         try {
-            const res = await fetch(`https://goyeorg.onrender.com/api/team-campaign/${campaignId}/my-contacts?email=${encodeURIComponent(email)}`);
+            const res = await fetch(`${API_BASE_URL}/api/team-campaign/${campaignId}/my-contacts?email=${encodeURIComponent(email)}`);
             const data = await res.json();
             if (res.ok && data.success) {
                 setMyContactsList(data.contacts || []);
@@ -54,7 +55,7 @@ export default function TeamDispatchConsole({ memberInfo, campaignInfo }) {
             setIsConnected(true);
             setConnectedUser(data?.user || null);
             setMemberStatus('READY');
-            fetch('https://goyeorg.onrender.com/api/team-campaign/member-ready', {
+            fetch(`${API_BASE_URL}/api/team-campaign/member-ready`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -94,7 +95,7 @@ export default function TeamDispatchConsole({ memberInfo, campaignInfo }) {
 
         const interval = setInterval(() => {
             if (memberInfo?.campaignId) {
-                fetch(`https://goyeorg.onrender.com/api/team-campaign/${memberInfo.campaignId}/lobby`)
+                fetch(`${API_BASE_URL}/api/team-campaign/${memberInfo.campaignId}/lobby`)
                     .then(r => r.json())
                     .then(data => {
                         if (data.success && data.members) {

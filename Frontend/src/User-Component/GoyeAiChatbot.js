@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FiX, FiSend, FiPaperclip, FiBot, FiUser, FiMessageSquare } from 'react-icons/fi';
-import { FaRobot, FaWhatsapp, FaUsers, FaCoins, FaClock, FaTags, FaBolt } from 'react-icons/fa';
+import { FaRobot, FaWhatsapp, FaUsers, FaCoins, FaClock, FaTags, FaBolt, FaSearch } from 'react-icons/fa';
 
 export default function GoyeAiChatbot({ isOpen, onClose }) {
   const [messages, setMessages] = useState([]);
@@ -27,6 +27,7 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
   // Suggestion Cards Data
   const suggestions = [
     { label: 'Connect WhatsApp', icon: <FaWhatsapp className="text-[#25D366]" />, prompt: 'How do I connect my WhatsApp account to Goye?' },
+    { label: 'Social Leads', icon: <FaSearch className="text-[#25D366]" />, prompt: 'How does Social Leads extraction work?' },
     { label: 'Bulk Messaging', icon: <FaBolt className="text-[#25D366]" />, prompt: 'How does bulk messaging work and how to upload contacts?' },
     { label: 'Team Campaign', icon: <FaUsers className="text-[#25D366]" />, prompt: 'What is a Team Campaign and how to split work?' },
     { label: 'Credits System', icon: <FaCoins className="text-[#25D366]" />, prompt: 'How do daily free credits work in Goye?' },
@@ -40,6 +41,10 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
 
     if (p.includes('connect') || p.includes('qr') || p.includes('whatsapp') || p.includes('link')) {
       return "To connect your WhatsApp:\n1. Click **Connect Device Now** or the top **Connect** button.\n2. Open WhatsApp on your phone → **Linked Devices** → **Link a Device**.\n3. Scan the QR code displayed on screen. Once authenticated, your session is encrypted & ready for bulk broadcasts!";
+    }
+
+    if (p.includes('social') || p.includes('soical') || p.includes('lead') || p.includes('extract') || p.includes('scrape') || p.includes('scraper') || p.includes('b2b')) {
+      return "Goye Social Leads Extractor & Web Scraper:\n1. **Select Platform**: Choose Facebook, Instagram, LinkedIn, YouTube, TikTok, or Google Maps.\n2. **Target Keywords**: Enter your search keyword (e.g. 'Gym Owners', 'Real Estate') and target location/country.\n3. **Extract Real-Time**: Click **Search / Extract Leads** to find public phone numbers & business leads.\n4. **Instant Action**: Export numbers as Excel/CSV or transfer them directly into the Bulk Messaging panel to start broadcasting immediately!";
     }
 
     if (p.includes('bulk') || p.includes('csv') || p.includes('excel') || p.includes('upload') || p.includes('contact')) {
@@ -59,7 +64,7 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
     }
 
     if (p.includes('plan') || p.includes('price') || p.includes('pricing') || p.includes('pro') || p.includes('cost')) {
-      return "Goye Pricing & Capabilities:\n• **Free Starter Plan**: 30 Daily Credits, Multi-file Uploads, Voice-to-Text, and Scheduled Messages.\n• **Enterprise / Custom Plan**: Unlimited Credits, Multi-Account Switching, Cloud 24/7 Scheduling & Dedicated API Support.\nContact lifechangersind@gmail.com for enterprise inquiries!";
+      return "Goye Pricing & Capabilities:\n• **Free Starter Plan**: 30 Daily Credits, Multi-file Uploads, Voice-to-Text, and Scheduled Messages.\n• **Enterprise / Custom Plan**: Unlimited Credits, Multi-Account Switching, Cloud 24/7 Scheduling & Dedicated API Support.\nFeel free to contact admin: +91 99430 42369 for enterprise inquiries!";
     }
 
     if (p.includes('voice') || p.includes('mic') || p.includes('speech') || p.includes('audio') || p.includes('ptt')) {
@@ -70,7 +75,7 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
       return "Hello! 👋 I'm Goye AI. How can I assist your WhatsApp broadcasting today?";
     }
 
-    return "Thank you for reaching out! I'm Goye AI Assistant. I can help with connecting WhatsApp, bulk sending, multi-file limits, scheduling, and credits. If you need dedicated human support, feel free to email lifechangersind@gmail.com!";
+    return "Thank you for reaching out! I'm Goye AI Assistant. I can help with connecting WhatsApp, bulk sending, multi-file limits, scheduling, and credits. If you need dedicated human support, feel free to contact admin: +91 99430 42369!";
   };
 
   const handleSend = async (customPrompt) => {
@@ -105,8 +110,8 @@ export default function GoyeAiChatbot({ isOpen, onClose }) {
     <div
       className="fixed bottom-28 sm:bottom-[138px] right-3 sm:right-6 left-3 sm:left-auto z-[150] w-[calc(100vw-1.5rem)] sm:w-[400px] max-w-[calc(100vw-1.5rem)] sm:max-w-[400px] bg-[#0D1117] border border-white/10 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden animate-fade-in-up text-white"
       style={{
-        height: "min(500px, calc(100vh - 160px))",
-        maxHeight: "calc(100vh - 160px)",
+        height: "min(460px, calc(100vh - 225px))",
+        maxHeight: "calc(100vh - 225px)",
         fontFamily: "'Inter', sans-serif"
       }}
     >

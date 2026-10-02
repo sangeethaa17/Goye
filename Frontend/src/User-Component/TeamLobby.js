@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaUsers, FaCheckCircle, FaSpinner, FaTimes, FaPlay, FaUserCheck, FaHourglassHalf, FaExclamationCircle, FaLock, FaCopy, FaWhatsapp } from 'react-icons/fa';
+import { API_BASE_URL } from '../config';
 
 export default function TeamLobby({ campaignId, leaderEmail, onClose }) {
     const [lobbyData, setLobbyData] = useState(null);
@@ -14,7 +15,7 @@ export default function TeamLobby({ campaignId, leaderEmail, onClose }) {
 
     const fetchLobby = async () => {
         try {
-            const res = await fetch(`https://goyeorg.onrender.com/api/team-campaign/${campaignId}/lobby`);
+            const res = await fetch(`${API_BASE_URL}/api/team-campaign/${campaignId}/lobby`);
             const data = await res.json();
             if (res.ok && data.success) {
                 setLobbyData(data);
@@ -39,7 +40,7 @@ export default function TeamLobby({ campaignId, leaderEmail, onClose }) {
     const handleApproveMember = async (memberEmail) => {
         setApprovingEmail(memberEmail);
         try {
-            const res = await fetch('https://goyeorg.onrender.com/api/team-campaign/approve-member', {
+            const res = await fetch(`${API_BASE_URL}/api/team-campaign/approve-member`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -67,7 +68,7 @@ export default function TeamLobby({ campaignId, leaderEmail, onClose }) {
         }
         setRejectingEmail(memberEmail);
         try {
-            const res = await fetch('https://goyeorg.onrender.com/api/team-campaign/reject-member', {
+            const res = await fetch(`${API_BASE_URL}/api/team-campaign/reject-member`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -103,7 +104,7 @@ export default function TeamLobby({ campaignId, leaderEmail, onClose }) {
 
         setStartingCampaign(true);
         try {
-            const res = await fetch('https://goyeorg.onrender.com/api/team-campaign/start', {
+            const res = await fetch(`${API_BASE_URL}/api/team-campaign/start`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ campaignId, leaderEmail })
@@ -141,7 +142,7 @@ export default function TeamLobby({ campaignId, leaderEmail, onClose }) {
 
     if (loading) {
         return (
-            <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[9999] p-4">
+            <div className="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center z-[200000] p-4">
                 <div className="bg-[#0f172a] border border-[#1e293b] rounded-3xl p-8 w-full max-w-sm shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col items-center justify-center">
                     <FaSpinner className="animate-spin text-emerald-500 text-4xl mb-4" />
                     <p className="text-gray-300 font-bold">Loading Team Lobby...</p>
@@ -158,8 +159,8 @@ export default function TeamLobby({ campaignId, leaderEmail, onClose }) {
     const readyMembers = members.filter(m => m.status === 'READY' || m.status === 'APPROVED');
 
     return (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[9999] p-4 animate-fade-in">
-            <div className="bg-[#0f172a] border border-[#1e293b] rounded-3xl w-full max-w-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] text-gray-100 relative overflow-hidden flex flex-col max-h-[90vh]">
+        <div className="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center z-[200000] p-3 sm:p-4 animate-fade-in overflow-y-auto">
+            <div className="bg-[#0f172a] border border-[#1e293b] rounded-3xl w-full max-w-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] text-gray-100 relative overflow-hidden flex flex-col max-h-[90vh] my-auto">
                 {/* Decorative background glow */}
                 <div className="absolute -top-40 -left-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
                 {/* Campaign Completed Celebration Popup Overlay */}
@@ -322,23 +323,23 @@ export default function TeamLobby({ campaignId, leaderEmail, onClose }) {
 
                 <div className="relative z-10 space-y-6">
                     {/* Status Bar */}
-                    <div className="grid grid-cols-3 gap-3">
-                        <div className="bg-[#1e293b] border border-[#334155] p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-inner hover:bg-[#1e293b]/80 transition-colors">
-                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Status</span>
-                            <span className={`text-base font-black uppercase tracking-wide ${
+                    <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                        <div className="bg-[#1e293b] border border-[#334155] p-2.5 sm:p-4 rounded-xl sm:rounded-2xl flex flex-col items-center justify-center text-center shadow-inner hover:bg-[#1e293b]/80 transition-colors overflow-hidden">
+                            <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 sm:mb-2">Status</span>
+                            <span className={`text-[11px] sm:text-sm md:text-base font-black uppercase tracking-tight leading-tight break-words text-center px-0.5 ${
                                 campaign?.status === 'IN_PROGRESS' || campaign?.status === 'COMPLETED' ? 'text-emerald-400' :
                                 campaign?.status === 'FAILED' ? 'text-red-400' : 'text-amber-400'
                             }`}>
-                                {campaign?.status || 'WAITING'}
+                                {campaign?.status ? campaign.status.replace(/_/g, ' ') : 'WAITING'}
                             </span>
                         </div>
-                        <div className="bg-[#1e293b] border border-[#334155] p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-inner hover:bg-[#1e293b]/80 transition-colors">
-                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Total Contacts</span>
-                            <span className="text-3xl font-black text-white">{stats.totalContacts || campaign?.totalContactsCount || 0}</span>
+                        <div className="bg-[#1e293b] border border-[#334155] p-2.5 sm:p-4 rounded-xl sm:rounded-2xl flex flex-col items-center justify-center text-center shadow-inner hover:bg-[#1e293b]/80 transition-colors">
+                            <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 sm:mb-2">Total Contacts</span>
+                            <span className="text-xl sm:text-3xl font-black text-white">{stats.totalContacts || campaign?.totalContactsCount || 0}</span>
                         </div>
-                        <div className="bg-[#1e293b] border border-[#334155] p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-inner hover:bg-[#1e293b]/80 transition-colors">
-                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Members Joined</span>
-                            <span className="text-3xl font-black text-blue-400">{members.length} <span className="text-lg text-gray-500">/ {campaign?.maxMembers}</span></span>
+                        <div className="bg-[#1e293b] border border-[#334155] p-2.5 sm:p-4 rounded-xl sm:rounded-2xl flex flex-col items-center justify-center text-center shadow-inner hover:bg-[#1e293b]/80 transition-colors">
+                            <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 sm:mb-2">Members Joined</span>
+                            <span className="text-xl sm:text-3xl font-black text-blue-400">{members.length} <span className="text-sm sm:text-lg text-gray-500">/ {campaign?.maxMembers}</span></span>
                         </div>
                     </div>
 
