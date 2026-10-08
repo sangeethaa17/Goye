@@ -66,7 +66,7 @@ export default function SocialExtractor() {
 
   // Connect Socket.IO once on mount
   useEffect(() => {
-    const apiBase = process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com";
+    const apiBase = process.env.REACT_APP_API_URL || "https://goye.onrender.com";
     const socketUrl = window.location.hostname === "localhost" ? "http://localhost:5000" : apiBase;
 
     const socket = io(socketUrl, {
@@ -251,7 +251,7 @@ export default function SocialExtractor() {
     } else {
       // Fallback to REST API if socket not available
       try {
-        const apiBase = process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com";
+        const apiBase = process.env.REACT_APP_API_URL || "https://goye.onrender.com";
         const localUrl = window.location.hostname === "localhost" ? "http://localhost:5000" : apiBase;
         const scrapeRes = await fetch(`${localUrl}/api/scrape-leads`, {
           method: "POST",
@@ -635,13 +635,13 @@ export default function SocialExtractor() {
         <div className="bg-[#111B21]/90 border border-white/10 rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] backdrop-blur-xl overflow-hidden">
           
           {/* Table Header Filter Bar with integrated Export to CSV */}
-          <div className="p-4 sm:p-5 border-b border-white/10 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-white/[0.02]">
+          <div className="p-3 sm:p-5 border-b border-white/10 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 sm:gap-4 bg-white/[0.02]">
             
             {/* Left: Select all & results count */}
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
               <button
                 onClick={handleSelectAll}
-                className="text-xs font-bold text-white/80 hover:text-white px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors flex items-center gap-2.5 cursor-pointer shadow-sm"
+                className="text-xs font-bold text-white/80 hover:text-white px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors flex items-center gap-2 cursor-pointer shadow-sm"
               >
                 <input
                   type="checkbox"
@@ -652,20 +652,20 @@ export default function SocialExtractor() {
                 <span>Select All ({selectedIds.length}/{displayedLeads.length})</span>
               </button>
 
-              <div className="px-3 py-1.5 rounded-xl bg-black/40 border border-white/10 text-xs text-white/50 flex items-center gap-1.5">
+              <div className="px-2.5 sm:px-3 py-1.5 rounded-xl bg-black/40 border border-white/10 text-[11px] sm:text-xs text-white/50 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
-                <span>Found <strong className="text-white font-bold">{displayedLeads.length}</strong> verified profiles</span>
+                <span>Found <strong className="text-white font-bold">{displayedLeads.length}</strong> profiles</span>
               </div>
 
               {isLoading && !isPaused && (
-                <div className="px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-300 font-semibold flex items-center gap-1.5 animate-pulse">
+                <div className="px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[11px] sm:text-xs text-amber-300 font-semibold flex items-center gap-1.5 animate-pulse">
                   <FaSpinner className="animate-spin text-[10px]" />
-                  <span>Extracting leads live...</span>
+                  <span>Extracting live...</span>
                 </div>
               )}
 
               {isPaused && (
-                <div className="px-3 py-1.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-xs text-amber-200 font-bold flex items-center gap-1.5">
+                <div className="px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-[11px] sm:text-xs text-amber-200 font-bold flex items-center gap-1.5">
                   <FaPause className="text-[10px]" />
                   <span>Paused</span>
                 </div>
@@ -673,14 +673,14 @@ export default function SocialExtractor() {
             </div>
 
             {/* Right: Filter platform tabs + Export CSV */}
-            <div className="flex items-center gap-3 flex-wrap sm:flex-nowrap justify-between lg:justify-end">
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap sm:flex-nowrap justify-between lg:justify-end">
               {/* Filter tabs */}
-              <div className="flex items-center gap-1 bg-black/40 p-1 rounded-xl border border-white/10 text-xs">
+              <div className="flex items-center gap-1 bg-black/40 p-1 rounded-xl border border-white/10 text-xs overflow-x-auto max-w-full [scrollbar-width:none]">
                 {["all", "instagram", "youtube", "facebook"].map((p) => (
                   <button
                     key={p}
                     onClick={() => setFilterPlatform(p)}
-                    className={`px-3 py-1.5 rounded-lg capitalize font-bold text-xs transition-all cursor-pointer whitespace-nowrap ${
+                    className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg capitalize font-bold text-[11px] sm:text-xs transition-all cursor-pointer whitespace-nowrap ${
                       filterPlatform === p
                         ? "bg-[#25D366] text-black shadow-sm"
                         : "text-white/60 hover:text-white hover:bg-white/5"
@@ -695,7 +695,7 @@ export default function SocialExtractor() {
               <button
                 onClick={handleExportCSV}
                 disabled={leads.length === 0}
-                className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-white font-bold text-xs border border-white/15 transition-all flex items-center gap-2 shadow-sm disabled:opacity-40 cursor-pointer active:scale-95 shrink-0"
+                className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white/5 hover:bg-white/10 text-white font-bold text-xs border border-white/15 transition-all flex items-center gap-2 shadow-sm disabled:opacity-40 cursor-pointer active:scale-95 shrink-0"
               >
                 <FaDownload className="text-[#25D366]" />
                 <span>Export CSV</span>
@@ -869,9 +869,9 @@ export default function SocialExtractor() {
           </div>
 
           {/* Table Footer */}
-          <div className="p-4 border-t border-white/10 flex items-center justify-between text-xs text-white/50 bg-black/20">
+          <div className="p-3 sm:p-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-1.5 text-xs text-white/50 bg-black/20 text-center sm:text-left">
             <span>Showing 1 to {displayedLeads.length} of {displayedLeads.length} results</span>
-            <span className="text-[11px] text-white/40">Goyee Verified Engine • 100% Public Business Records</span>
+            <span className="text-[10px] sm:text-[11px] text-white/40">Goyee Verified Engine • 100% Public Business Records</span>
           </div>
 
         </div>

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 // Scheduled Messages will be built out in the next phase, per the scope
 // given for this pass.
 
-const API_BASE_URL = (process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com").replace(/\/+$/, "");
+const API_BASE_URL = (process.env.REACT_APP_API_URL || "https://goye.onrender.com").replace(/\/+$/, "");
 
 export default function FreeUserHome() {
   const navigate = useNavigate();

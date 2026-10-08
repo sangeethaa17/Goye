@@ -30,8 +30,8 @@ export default function GoyeAdminDashboard() {
       isFetching = true;
       try {
         const [userRes, msgRes] = await Promise.all([
-          fetch("https://goyeorg.onrender.com/api/users").catch(() => null),
-          fetch("https://goyeorg.onrender.com/api/messages/stats").catch(() => null)
+          fetch("https://goye.onrender.com/api/users").catch(() => null),
+          fetch("https://goye.onrender.com/api/messages/stats").catch(() => null)
         ]);
         
         if (userRes && userRes.ok) {

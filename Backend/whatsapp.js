@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import QRCode from 'react-qr-code';
 import { FaCheckCircle, FaSpinner } from 'react-icons/fa'; // Icons for spinner and success tick
 
-const socket = io.connect("https://goyeorg.onrender.com");
+const socket = io.connect("https://goye.onrender.com");
 
 export default function WhatsAppAuth() {
     const [qrCode, setQrCode] = useState("");

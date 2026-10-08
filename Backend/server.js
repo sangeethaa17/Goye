@@ -1188,7 +1188,10 @@ io.on("connection", (socket) => {
                             }
                         }
                     } else {
-                        await whatsappClient.sendMessage(formattedNumber, { text: text || '' });
+                        const sentResult = await whatsappClient.sendMessage(formattedNumber, { text: text || '' });
+                        if (sentResult && sentResult.key && sentResult.key.id && userClient && userClient.messageStore) {
+                            userClient.messageStore[sentResult.key.id] = sentResult.message;
+                        }
                     }
                     try { await whatsappClient.sendPresenceUpdate('paused', formattedNumber); } catch (e) {}
                     console.log(`✅ Message sent to ${num}`);
@@ -1666,7 +1669,10 @@ function scheduleJob(scheduleDoc) {
                             }
                         }
                     } else {
-                        await whatsappClient.sendMessage(formattedNumber, { text: scheduleDoc.message || '' });
+                        const sentResult = await whatsappClient.sendMessage(formattedNumber, { text: scheduleDoc.message || '' });
+                        if (sentResult && sentResult.key && sentResult.key.id && userClients[email] && userClients[email].messageStore) {
+                            userClients[email].messageStore[sentResult.key.id] = sentResult.message;
+                        }
                     }
                     io.emit("bulk_progress_update", { status: "sent", number: num });
                     try {

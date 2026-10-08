@@ -46,7 +46,7 @@ export default function SubscriptionRequests() {
 
   const fetchRequests = async () => {
     try {
-      const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goyeorg.onrender.com';
+      const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goye.onrender.com';
       const response = await fetch(`${apiBaseUrl}/api/subscription-requests`);
       if (response.ok) {
         const data = await response.json();
@@ -77,7 +77,7 @@ export default function SubscriptionRequests() {
 
   const updateStatus = async (id, status) => {
     try {
-      const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goyeorg.onrender.com';
+      const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goye.onrender.com';
       const response = await fetch(`${apiBaseUrl}/api/subscription-requests/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -220,37 +220,37 @@ export default function SubscriptionRequests() {
 
         {/* Requests Table Card */}
         <div className="dash-card slide-up overflow-hidden" style={{ animationDelay: '0.2s' }}>
-          <div className="flex flex-wrap items-center justify-between gap-4 p-6 border-b border-[#e6f7ef]">
-            <div className="flex items-center gap-2 bg-[#f4fcf7] border border-[#a7f3d0] rounded-xl p-1">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3.5 p-3.5 sm:p-6 border-b border-[#e6f7ef]">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-[#f4fcf7] border border-[#a7f3d0] rounded-xl p-1 overflow-x-auto max-w-full [scrollbar-width:none]">
               {filters.map((f) => (
                 <button
                   key={f}
                   onClick={() => setFilter(f)}
-                  className={`px-4 py-1.5 rounded-lg font-semibold text-sm transition-all flex items-center gap-2 ${
+                  className={`px-3 sm:px-4 py-1.5 rounded-lg font-semibold text-xs sm:text-sm transition-all flex items-center gap-1.5 sm:gap-2 whitespace-nowrap cursor-pointer ${
                     filter === f ? "bg-[#10B981] text-white shadow-md" : "text-gray-500 hover:text-[#064e3b]"
                   }`}
                 >
                   {f}
-                  <span className={`text-xs px-2 py-0.5 rounded-full ${filter === f ? "bg-white/20" : "bg-[#d1fae5] text-[#10B981]"}`}>
+                  <span className={`text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full ${filter === f ? "bg-white/20" : "bg-[#d1fae5] text-[#10B981]"}`}>
                     {counts[f]}
                   </span>
                 </button>
               ))}
             </div>
             
-            <div className="flex items-center gap-2 bg-[#f4fcf7] border border-[#a7f3d0] focus-within:border-[#10B981] rounded-xl px-4 py-2.5 w-72 transition-colors">
-              <Search size={16} className="text-[#059669]" />
+            <div className="flex items-center gap-2 bg-[#f4fcf7] border border-[#a7f3d0] focus-within:border-[#10B981] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 w-full sm:w-72 transition-colors">
+              <Search size={16} className="text-[#059669] shrink-0" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search requests..."
-                className="bg-transparent text-sm font-medium text-[#064e3b] outline-none w-full placeholder:text-gray-400"
+                className="bg-transparent text-xs sm:text-sm font-medium text-[#064e3b] outline-none w-full placeholder:text-gray-400"
               />
             </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+          <div className="overflow-x-auto [scrollbar-width:none]">
+            <table className="w-full text-left border-collapse min-w-[680px] sm:min-w-full">
               <thead>
                 <tr className="bg-[#f4fcf7] text-gray-500 text-sm font-semibold uppercase tracking-wider">
                   <th className="px-6 py-4">Request ID</th>

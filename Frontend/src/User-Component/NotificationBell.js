@@ -82,8 +82,10 @@ export default function NotificationBell({ isMobileMenu, onMobileClose }) {
       {/* Notification Dropdown Menu */}
       {isOpen && (
         <div 
-          className={`mt-3 bg-[#0E1613] border border-[#25D366]/30 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden z-50 text-left backdrop-blur-xl animate-scaleUp ${
-            isMobileMenu ? 'w-full relative' : 'absolute right-0 w-80 sm:w-96'
+          className={`mt-2 sm:mt-3 bg-[#0E1613] border border-[#25D366]/30 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden z-50 text-left backdrop-blur-xl animate-scaleUp ${
+            isMobileMenu
+              ? 'w-full relative'
+              : 'fixed sm:absolute left-2.5 right-2.5 sm:left-auto sm:right-0 top-16 sm:top-auto sm:w-96 max-w-sm sm:max-w-none mx-auto sm:mx-0'
           }`}
           style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
         >

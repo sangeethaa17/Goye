@@ -5,7 +5,7 @@ import {
   FaMapMarkerAlt, FaEye, FaEyeSlash, FaUserPlus, FaArrowRight, FaSpinner 
 } from "react-icons/fa";
 
-const API_BASE_URL = (process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com").replace(/\/+$/, "");
+const API_BASE_URL = (process.env.REACT_APP_API_URL || "https://goye.onrender.com").replace(/\/+$/, "");
 
 const initialForm = {
   name: "",

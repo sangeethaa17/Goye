@@ -96,7 +96,7 @@ export default function Register() {
 
     setLoading(true);
     try {
-      const apiBaseUrl = (process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com").replace(/\/+$/, "");
+      const apiBaseUrl = (process.env.REACT_APP_API_URL || "https://goye.onrender.com").replace(/\/+$/, "");
       const fullPhone = formData.phone.trim().startsWith("+") ? formData.phone.trim() : `${countryCode} ${formData.phone.trim()}`;
       const response = await fetch(`${apiBaseUrl}/api/register`, {
         method: "POST",

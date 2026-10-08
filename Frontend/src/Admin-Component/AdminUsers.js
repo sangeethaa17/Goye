@@ -32,7 +32,7 @@ export default function AdminUsers() {
     if (isFetchingUsers) return;
     isFetchingUsers = true;
     try {
-      const response = await fetch("https://goyeorg.onrender.com/api/users");
+      const response = await fetch("https://goye.onrender.com/api/users");
       if (!response.ok) throw new Error(`Server returned ${response.status}: Please restart your Node.js backend!`);
       const data = await response.json();
       setUsers(data); 
@@ -53,7 +53,7 @@ export default function AdminUsers() {
     
     if (user.email) {
       try {
-        const response = await fetch("https://goyeorg.onrender.com/api/user/credits", {
+        const response = await fetch("https://goye.onrender.com/api/user/credits", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: user.email })
@@ -98,7 +98,7 @@ export default function AdminUsers() {
   const handleDelete = async (id) => {
     if(window.confirm("Are you sure you want to completely delete this user? This action cannot be undone.")) {
       try {
-        const response = await fetch(`https://goyeorg.onrender.com/api/users/${id}`, {
+        const response = await fetch(`https://goye.onrender.com/api/users/${id}`, {
           method: 'DELETE',
         });
         if (response.ok) {
@@ -207,21 +207,21 @@ export default function AdminUsers() {
 
         {/* Users Table Card */}
         <div className="dash-card slide-up overflow-hidden" style={{ animationDelay: '0.2s' }}>
-          <div className="flex flex-wrap items-center justify-between gap-4 p-6 border-b border-[#e6f7ef]">
-            <h2 className="text-lg font-bold text-[#064e3b]">User Directory</h2>
-            <div className="flex items-center gap-2 bg-[#f4fcf7] border border-[#a7f3d0] focus-within:border-[#10B981] rounded-xl px-4 py-2.5 w-80 transition-colors">
-              <Search size={16} className="text-[#059669]" />
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3.5 p-3.5 sm:p-6 border-b border-[#e6f7ef]">
+            <h2 className="text-base sm:text-lg font-bold text-[#064e3b]">User Directory</h2>
+            <div className="flex items-center gap-2 bg-[#f4fcf7] border border-[#a7f3d0] focus-within:border-[#10B981] rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 w-full sm:w-80 transition-colors">
+              <Search size={16} className="text-[#059669] shrink-0" />
               <input
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by name, email, phone, business..."
-                className="bg-transparent text-sm font-medium text-[#064e3b] outline-none w-full placeholder:text-gray-400"
+                placeholder="Search by name, email, phone..."
+                className="bg-transparent text-xs sm:text-sm font-medium text-[#064e3b] outline-none w-full placeholder:text-gray-400"
               />
             </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+          <div className="overflow-x-auto [scrollbar-width:none]">
+            <table className="w-full text-left border-collapse min-w-[650px] sm:min-w-full">
               <thead>
                 <tr className="bg-[#f4fcf7] text-gray-500 text-sm font-semibold uppercase tracking-wider">
                   <th className="px-6 py-4">User Details</th>

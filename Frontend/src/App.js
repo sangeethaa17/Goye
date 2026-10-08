@@ -124,7 +124,7 @@ function CreditLimitGuard({ children }) {
     let storedEmail = localStorage.getItem("email") || localStorage.getItem("userEmail") || "";
     if (!storedEmail) return;
 
-    const apiBase = process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com";
+    const apiBase = process.env.REACT_APP_API_URL || "https://goye.onrender.com";
 
     const syncLiveStatus = () => {
       const isFreeUserSession = !!localStorage.getItem("freeUserToken") || !!localStorage.getItem("freeUserData");
@@ -454,7 +454,7 @@ function CreditLimitGuard({ children }) {
       const planName = (modalPlan && planDetails[modalPlan] && planDetails[modalPlan].name) || "One Day";
       const planPrice = (modalPlan && planDetails[modalPlan] && planDetails[modalPlan].price) || "₹49";
 
-      const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goyeorg.onrender.com';
+      const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goye.onrender.com';
       const response = await fetch(`${apiBaseUrl}/api/subscription-requests`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -786,12 +786,12 @@ function CreditLimitGuard({ children }) {
 
       {/* Main Freeze Popup Modal with Blurred Backdrop */}
       {shouldFreezeApp && !effectiveFreezeDismissed && (
-        <div className="fixed inset-0 z-[99999] bg-black/60 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 text-center animate-fade-in overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
+        <div className="fixed inset-0 z-[99999] bg-black/60 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 text-center animate-fade-in overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
           {/* Ambient Background Glow (Constrained so it cannot overflow) */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-96 h-80 sm:h-96 bg-[#25D366]/15 rounded-full blur-3xl pointer-events-none overflow-hidden" />
           
           {/* Main Freeze Card */}
-          <div className="bg-[#0E1613]/95 border border-[#25D366]/35 rounded-3xl p-8 sm:p-12 max-w-lg w-full shadow-[0_25px_70px_rgba(0,0,0,0.9)] relative z-10 backdrop-blur-2xl flex flex-col items-center">
+          <div className="bg-[#0E1613]/95 border border-[#25D366]/35 rounded-2xl sm:rounded-3xl p-5 sm:p-12 max-w-lg w-full shadow-[0_25px_70px_rgba(0,0,0,0.9)] relative z-10 backdrop-blur-2xl flex flex-col items-center">
             
             {/* Top Right Close Button for voluntary modal view */}
             {(!isExpiredSubscribedUser || isFreeUser) && (
@@ -802,33 +802,33 @@ function CreditLimitGuard({ children }) {
                   setIsExplicitlyTriggered(false);
                   isExplicitlyTriggeredRef.current = false;
                 }}
-                className="absolute top-4 right-4 sm:top-5 sm:right-5 text-white/40 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+                className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 text-white/40 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
                 title="Close"
               >
-                <FaTimes className="text-base" />
+                <FaTimes className="text-sm sm:text-base" />
               </button>
             )}
 
             {/* Warning Lock / Status Icon */}
             {isFreshRenewPending ? (
-              <div className="w-20 h-20 bg-amber-500/10 border border-amber-500/30 rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-inner text-amber-400 animate-pulse">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 bg-amber-500/10 border border-amber-500/30 rounded-2xl sm:rounded-3xl flex items-center justify-center text-2xl sm:text-4xl mb-4 sm:mb-6 shadow-inner text-amber-400 animate-pulse">
                 ⏳
               </div>
             ) : isFreeUser && credits > 0 ? (
-              <div className="w-20 h-20 bg-emerald-500/10 border border-emerald-500/30 rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-inner text-emerald-400 animate-pulse">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl sm:rounded-3xl flex items-center justify-center text-2xl sm:text-4xl mb-4 sm:mb-6 shadow-inner text-emerald-400 animate-pulse">
                 🚀
               </div>
             ) : isFreeUser ? (
-              <div className="w-20 h-20 bg-purple-500/10 border border-purple-500/30 rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-inner text-purple-400 animate-pulse">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 bg-purple-500/10 border border-purple-500/30 rounded-2xl sm:rounded-3xl flex items-center justify-center text-2xl sm:text-4xl mb-4 sm:mb-6 shadow-inner text-purple-400 animate-pulse">
                 ⚡
               </div>
             ) : (
-              <div className="w-20 h-20 bg-[#25D366]/10 border border-[#25D366]/30 rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-inner text-[#25D366] animate-pulse">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 bg-[#25D366]/10 border border-[#25D366]/30 rounded-2xl sm:rounded-3xl flex items-center justify-center text-2xl sm:text-4xl mb-4 sm:mb-6 shadow-inner text-[#25D366] animate-pulse">
                 🔒
               </div>
             )}
 
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-snug">
+            <h2 className="text-xl sm:text-3xl font-extrabold text-white mb-2 sm:mb-3 tracking-tight leading-snug">
               {isFreshRenewPending
                 ? "Plan Request Under Review"
                 : isFreeUser && credits > 0
@@ -945,11 +945,11 @@ function CreditLimitGuard({ children }) {
           {/* --- POPUP 0: Free User Welcome & Credit Guide Modal --- */}
           {showFreeUserWelcomeModal && (
             <div 
-              className="fixed inset-0 z-[100005] flex items-center justify-center bg-black/85 backdrop-blur-md p-4 sm:p-6 animate-fade-in text-left overflow-y-auto"
+              className="fixed inset-0 z-[100005] flex items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-6 animate-fade-in text-left overflow-y-auto"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               <div 
-                className="bg-[#0B1510]/95 border border-[#25D366]/40 rounded-[32px] p-6 sm:p-10 max-w-xl w-full relative shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_50px_rgba(37,211,102,0.2)] backdrop-blur-2xl overflow-hidden my-auto"
+                className="bg-[#0B1510]/95 border border-[#25D366]/40 rounded-2xl sm:rounded-[32px] p-4.5 sm:p-10 max-w-xl w-full relative shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_50px_rgba(37,211,102,0.2)] backdrop-blur-2xl overflow-hidden my-auto"
               >
                 {/* Ambient glow in corner */}
                 <div className="absolute -top-16 -right-16 w-48 h-48 bg-[#25D366]/20 rounded-full blur-3xl pointer-events-none" />
@@ -963,30 +963,30 @@ function CreditLimitGuard({ children }) {
                     setShowFreeUserWelcomeModal(false);
                     sessionStorage.removeItem("showFreeUserWelcome");
                   }}
-                  className="absolute top-5 right-5 text-white/50 hover:text-white p-2.5 rounded-full hover:bg-white/10 transition-colors cursor-pointer z-10"
+                  className="absolute top-4 right-4 sm:top-5 sm:right-5 text-white/50 hover:text-white p-2 sm:p-2.5 rounded-full hover:bg-white/10 transition-colors cursor-pointer z-10"
                   title="Close"
                 >
-                  <FaTimes className="text-base" />
+                  <FaTimes className="text-sm sm:text-base" />
                 </button>
 
                 {/* Header Badge & Title */}
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 uppercase font-mono">
-                    <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-black bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 uppercase font-mono">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#25D366] animate-pulse" />
                     Free User Tier
                   </span>
-                  <span className="text-xs text-white/50 font-medium font-mono">• 30 Trial Credits</span>
+                  <span className="text-[11px] sm:text-xs text-white/50 font-medium font-mono">• 30 Trial Credits</span>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-2">
+                <h2 className="text-xl sm:text-3xl font-black text-white tracking-tight mb-1.5 sm:mb-2">
                   Welcome to <span className="text-[#25D366]">Goye!</span> 🎉
                 </h2>
-                <p className="text-xs sm:text-sm text-white/70 font-medium mb-6 leading-relaxed">
+                <p className="text-xs sm:text-sm text-white/70 font-medium mb-4 sm:mb-6 leading-relaxed">
                   Here is a quick overview of how your free credits and feature recharge work:
                 </p>
 
                 {/* 4 Feature Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-4 sm:mb-6">
                   {/* Card 1: 30 Free Trial */}
                   <div className="bg-white/[0.03] border border-[#25D366]/25 rounded-2xl p-4 transition-all hover:bg-white/[0.06] hover:border-[#25D366]/50">
                     <div className="flex items-center gap-2.5 mb-1.5">
@@ -1257,15 +1257,15 @@ function CreditLimitGuard({ children }) {
               {/* Modal Box Container */}
               <div 
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-6xl max-h-[92vh] sm:max-h-[90vh] bg-[#0c1511]/95 border border-[#25D366]/35 rounded-2xl sm:rounded-[32px] shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden backdrop-blur-2xl"
+                className="relative w-full max-w-6xl max-h-[94vh] sm:max-h-[90vh] bg-[#0c1511]/95 border border-[#25D366]/35 rounded-2xl sm:rounded-[32px] shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden backdrop-blur-2xl"
               >
                 {/* Sticky Modal Header */}
-                <div className="flex items-center justify-between px-4 sm:px-10 py-3.5 sm:py-5 border-b border-white/10 bg-[#0c1511]/90 backdrop-blur-md z-10 shrink-0">
-                  <div>
-                    <h2 className="text-lg sm:text-3xl font-black text-white tracking-tight">
+                <div className="flex items-center justify-between px-3.5 sm:px-10 py-3 sm:py-5 border-b border-white/10 bg-[#0c1511]/90 backdrop-blur-md z-10 shrink-0">
+                  <div className="min-w-0 pr-2">
+                    <h2 className="text-base sm:text-3xl font-black text-white tracking-tight truncate">
                       Choose Your <span className="text-[#25D366]">Plan</span>
                     </h2>
-                    <p className="text-[11px] sm:text-sm text-white/50 font-medium mt-0.5">
+                    <p className="text-[10px] sm:text-sm text-white/50 font-medium mt-0.5 truncate">
                       Choose the plan that fits your messaging needs.
                     </p>
                   </div>
@@ -1273,20 +1273,20 @@ function CreditLimitGuard({ children }) {
                   <button
                     type="button"
                     onClick={() => setShowPlansModal(false)}
-                    className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-all duration-200 border border-white/10 flex items-center justify-center shadow-lg cursor-pointer shrink-0"
+                    className="p-1.5 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-all duration-200 border border-white/10 flex items-center justify-center shadow-lg cursor-pointer shrink-0"
                     title="Close"
                   >
-                    <FaTimes className="text-sm sm:text-base" />
+                    <FaTimes className="text-xs sm:text-base" />
                   </button>
                 </div>
 
                 {/* Category Filter Tabs */}
-                <div className="flex justify-start sm:justify-center pt-3 sm:pt-6 pb-2 px-3 sm:px-6 shrink-0 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-                  <div className="bg-[#0a120d] border border-[#25D366]/30 rounded-full p-1 sm:p-1.5 shadow-md inline-flex items-center gap-1 sm:gap-2 backdrop-blur-xl select-none shrink-0">
+                <div className="flex justify-start sm:justify-center pt-2.5 sm:pt-6 pb-2 px-2.5 sm:px-6 shrink-0 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                  <div className="bg-[#0a120d] border border-[#25D366]/30 rounded-full p-0.5 sm:p-1.5 shadow-md inline-flex items-center gap-0.5 sm:gap-2 backdrop-blur-xl select-none shrink-0">
                     <button
                       type="button"
                       onClick={() => setModalCategory('daily')}
-                      className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap ${
+                      className={`px-2.5 sm:px-6 py-1 sm:py-2 rounded-full text-[11px] sm:text-sm font-bold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap ${
                         modalCategory === 'daily'
                           ? 'bg-gradient-to-r from-[#25D366] to-[#128C7E] text-black shadow-[0_4px_15px_rgba(37,211,102,0.4)] scale-105'
                           : 'text-white/70 hover:text-white'
@@ -1297,7 +1297,7 @@ function CreditLimitGuard({ children }) {
                     <button
                       type="button"
                       onClick={() => setModalCategory('monthly')}
-                      className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap ${
+                      className={`px-2.5 sm:px-6 py-1 sm:py-2 rounded-full text-[11px] sm:text-sm font-bold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap ${
                         modalCategory === 'monthly'
                           ? 'bg-gradient-to-r from-[#25D366] to-[#128C7E] text-black shadow-[0_4px_15px_rgba(37,211,102,0.4)] scale-105'
                           : 'text-white/70 hover:text-white'
@@ -1308,7 +1308,7 @@ function CreditLimitGuard({ children }) {
                     <button
                       type="button"
                       onClick={() => setModalCategory('yearly')}
-                      className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap ${
+                      className={`px-2.5 sm:px-6 py-1 sm:py-2 rounded-full text-[11px] sm:text-sm font-bold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap ${
                         modalCategory === 'yearly'
                           ? 'bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C5A028] text-black shadow-[0_4px_15px_rgba(212,175,55,0.35)] scale-105'
                           : 'text-white/70 hover:text-white'
@@ -1319,7 +1319,7 @@ function CreditLimitGuard({ children }) {
                     <button
                       type="button"
                       onClick={() => setModalCategory('all')}
-                      className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap ${
+                      className={`px-2.5 sm:px-6 py-1 sm:py-2 rounded-full text-[11px] sm:text-sm font-bold transition-all duration-300 flex items-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap ${
                         modalCategory === 'all'
                           ? 'bg-gradient-to-r from-[#25D366] to-[#128C7E] text-black shadow-[0_4px_15px_rgba(37,211,102,0.4)] scale-105'
                           : 'text-white/70 hover:text-white'
@@ -1331,7 +1331,7 @@ function CreditLimitGuard({ children }) {
                 </div>
 
                 {/* Scrollable Modal Interior */}
-                <div className="overflow-y-auto px-3 sm:px-10 py-4 sm:py-6 flex-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                <div className="overflow-y-auto px-2.5 sm:px-10 py-3 sm:py-6 flex-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                   {/* Plans Grid (3 Cards Per Row) */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 w-full mb-6">
                     {[
@@ -1640,46 +1640,46 @@ function CreditLimitGuard({ children }) {
                               setModalPlan(plan.key);
                             }
                           }}
-                          className={`rounded-2xl sm:rounded-[28px] p-5 sm:p-8 flex flex-col justify-between relative cursor-pointer group transition-all duration-300 ${cardStyle}`}
+                          className={`rounded-2xl sm:rounded-[28px] p-4 sm:p-8 flex flex-col justify-between relative cursor-pointer group transition-all duration-300 ${cardStyle}`}
                         >
                           {/* Top Centered Pill Badges */}
                           {isPlanActive ? (
-                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-bold bg-[#0d2a17] text-[#25D366] border border-[#25D366]/60 shadow-[0_0_15px_rgba(37,211,102,0.35)] whitespace-nowrap z-10">
+                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 sm:px-4 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold bg-[#0d2a17] text-[#25D366] border border-[#25D366]/60 shadow-[0_0_15px_rgba(37,211,102,0.35)] whitespace-nowrap z-10">
                               <FaCheckCircle className="text-xs text-[#25D366]" /> Active Plan
                             </div>
                           ) : plan.isPopular ? (
-                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[#25D366] text-black shadow-[0_0_20px_rgba(37,211,102,0.5)] whitespace-nowrap z-10">
+                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 sm:px-4 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider bg-[#25D366] text-black shadow-[0_0_20px_rgba(37,211,102,0.5)] whitespace-nowrap z-10">
                               MOST POPULAR
                             </div>
                           ) : plan.isGolden ? (
-                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C5A028] text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] whitespace-nowrap z-10">
+                            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 sm:px-4 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C5A028] text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] whitespace-nowrap z-10">
                               BEST VALUE PACK
                             </div>
                           ) : null}
 
                           {/* Card Header & Price */}
                           <div className="flex flex-col items-center text-center">
-                            <h3 className={`text-xl font-bold uppercase tracking-wider mb-1 ${plan.isGolden ? 'text-[#D4AF37]' : plan.title === 'SPARK' ? 'text-[#25D366]' : 'text-white'}`}>
+                            <h3 className={`text-lg sm:text-xl font-bold uppercase tracking-wider mb-1 ${plan.isGolden ? 'text-[#D4AF37]' : plan.title === 'SPARK' ? 'text-[#25D366]' : 'text-white'}`}>
                               {plan.title}
                             </h3>
-                            <p className="text-xs text-white/60 mb-4 min-h-[30px] flex items-center justify-center max-w-xs font-normal">
+                            <p className="text-xs text-white/60 mb-3 sm:mb-4 min-h-[26px] sm:min-h-[30px] flex items-center justify-center max-w-xs font-normal">
                               {plan.subtitle}
                             </p>
 
                             {/* Price */}
                             <div className="flex flex-col items-center mb-1">
-                              <span className={`text-4xl sm:text-5xl font-black tracking-tight drop-shadow-[0_0_12px_rgba(37,211,102,0.35)] ${plan.isGolden ? 'text-[#D4AF37]' : 'text-[#25D366]'}`}>
+                              <span className={`text-3xl sm:text-5xl font-black tracking-tight drop-shadow-[0_0_12px_rgba(37,211,102,0.35)] ${plan.isGolden ? 'text-[#D4AF37]' : 'text-[#25D366]'}`}>
                                 {plan.price}
                               </span>
-                              <span className="text-xs font-normal text-white/50 mt-1.5">
+                              <span className="text-[11px] sm:text-xs font-normal text-white/50 mt-1 sm:mt-1.5">
                                 {plan.duration}
                               </span>
                             </div>
 
                             {/* Feature Bullet Points */}
-                            <ul className="w-full flex flex-col gap-2.5 text-left my-6 pt-5 border-t border-white/10">
+                            <ul className="w-full flex flex-col gap-2 sm:gap-2.5 text-left my-4 sm:my-6 pt-4 sm:pt-5 border-t border-white/10">
                               {plan.features.map((feat, idx) => (
-                                <li key={idx} className="flex items-start gap-2.5 text-xs text-white/85 font-normal leading-relaxed">
+                                <li key={idx} className="flex items-start gap-2 sm:gap-2.5 text-xs text-white/85 font-normal leading-relaxed">
                                   <span className={`font-bold text-xs shrink-0 mt-0.5 ${plan.isGolden ? 'text-[#D4AF37]' : 'text-[#25D366]'}`}>✓</span>
                                   <span>{feat}</span>
                                 </li>
@@ -1692,15 +1692,15 @@ function CreditLimitGuard({ children }) {
                             <button 
                               disabled 
                               onClick={(e) => e.stopPropagation()}
-                              className="w-full py-3.5 rounded-xl font-bold text-sm bg-[#0c2616] text-[#25D366] border border-[#25D366]/50 shadow-[0_0_15px_rgba(37,211,102,0.25)] cursor-default flex items-center justify-center gap-2 select-none"
+                              className="w-full py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-[#0c2616] text-[#25D366] border border-[#25D366]/50 shadow-[0_0_15px_rgba(37,211,102,0.25)] cursor-default flex items-center justify-center gap-2 select-none"
                             >
-                              <FaCheckCircle className="text-sm" /> Active Plan
+                              <FaCheckCircle className="text-xs sm:text-sm" /> Active Plan
                             </button>
                           ) : plan.isDemo ? (
                             <button 
                               disabled={true}
                               onClick={(e) => e.stopPropagation()}
-                              className="w-full py-3.5 rounded-xl font-bold text-sm bg-white/5 border border-white/10 text-white/40 cursor-not-allowed flex items-center justify-center gap-2 select-none opacity-60"
+                              className="w-full py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-white/5 border border-white/10 text-white/40 cursor-not-allowed flex items-center justify-center gap-2 select-none opacity-60"
                             >
                               Choose Plan
                             </button>
@@ -1711,7 +1711,7 @@ function CreditLimitGuard({ children }) {
                                 setModalPlan(plan.key);
                                 setShowPlansModal(false);
                               }}
-                              className="w-full py-3.5 rounded-xl font-extrabold text-sm bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C5A028] text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:opacity-95 transition-all duration-300 cursor-pointer flex items-center justify-center"
+                              className="w-full py-3 sm:py-3.5 rounded-xl font-extrabold text-xs sm:text-sm bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C5A028] text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:opacity-95 transition-all duration-300 cursor-pointer flex items-center justify-center"
                             >
                               Choose Plan
                             </button>
@@ -1722,7 +1722,7 @@ function CreditLimitGuard({ children }) {
                                 setModalPlan(plan.key);
                                 setShowPlansModal(false);
                               }}
-                              className="w-full py-3.5 rounded-xl font-extrabold text-sm bg-[#25D366] hover:bg-[#1ebd5a] text-black shadow-[0_0_20px_rgba(37,211,102,0.6)] hover:opacity-95 transition-all duration-300 cursor-pointer flex items-center justify-center"
+                              className="w-full py-3 sm:py-3.5 rounded-xl font-extrabold text-xs sm:text-sm bg-[#25D366] hover:bg-[#1ebd5a] text-black shadow-[0_0_20px_rgba(37,211,102,0.6)] hover:opacity-95 transition-all duration-300 cursor-pointer flex items-center justify-center"
                             >
                               Choose Plan
                             </button>
@@ -1733,7 +1733,7 @@ function CreditLimitGuard({ children }) {
                                 setModalPlan(plan.key);
                                 setShowPlansModal(false);
                               }}
-                              className="w-full py-3.5 rounded-xl font-bold text-sm bg-[#0a2012] hover:bg-[#25D366] text-white hover:text-black border border-[#25D366]/40 shadow-md transition-all duration-300 cursor-pointer flex items-center justify-center"
+                              className="w-full py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-[#0a2012] hover:bg-[#25D366] text-white hover:text-black border border-[#25D366]/40 shadow-md transition-all duration-300 cursor-pointer flex items-center justify-center"
                             >
                               Choose Plan
                             </button>
@@ -1903,7 +1903,7 @@ function CreditLimitGuard({ children }) {
                           onSubmit={async (e) => {
                             e.preventDefault();
                             try {
-                              const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goyeorg.onrender.com';
+                              const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goye.onrender.com';
                               const response = await fetch(`${apiBaseUrl}/api/subscription-requests`, {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
@@ -2031,41 +2031,41 @@ function CreditLimitGuard({ children }) {
           {showPaymentConfirmModal && (
             <div 
               onClick={handleCloseConfirmModal}
-              className="fixed inset-0 z-[100020] flex items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-4 animate-fade-in text-left"
+              className="fixed inset-0 z-[100020] flex items-center justify-center bg-black/85 backdrop-blur-md p-2.5 sm:p-4 animate-fade-in text-left"
             >
               <div 
                 onClick={(e) => e.stopPropagation()}
-                className="bg-[#121b16] border border-[#25D366]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-8 max-w-md w-full relative shadow-[0_20px_60px_rgba(0,0,0,0.9)] text-left backdrop-blur-xl max-h-[92vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                className="bg-[#121b16] border border-[#25D366]/30 rounded-2xl sm:rounded-3xl p-4 sm:p-8 max-w-md w-full relative shadow-[0_20px_60px_rgba(0,0,0,0.9)] text-left backdrop-blur-xl max-h-[94vh] sm:max-h-[92vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
               >
                 {/* Top Close (X) Button */}
                 <button 
                   onClick={handleCloseConfirmModal}
-                  className="absolute top-4 right-4 text-white/40 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer z-10"
+                  className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 text-white/40 hover:text-white p-1.5 sm:p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer z-10"
                   title="Close"
                 >
-                  <FaTimes className="text-sm" />
+                  <FaTimes className="text-xs sm:text-sm" />
                 </button>
 
                 {/* Modal Content: Success State OR Input Form */}
                 {confirmSuccess ? (
-                  <div className="py-6 text-center animate-fade-in flex flex-col items-center">
+                  <div className="py-4 sm:py-6 text-center animate-fade-in flex flex-col items-center">
                     {/* Big Green Success Badge */}
-                    <div className="w-16 h-16 bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] rounded-full flex items-center justify-center text-3xl mb-4 shadow-[0_0_30px_rgba(37,211,102,0.25)]">
-                      <FaCheckCircle className="text-3xl" />
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] rounded-full flex items-center justify-center text-2xl sm:text-3xl mb-3.5 sm:mb-4 shadow-[0_0_30px_rgba(37,211,102,0.25)]">
+                      <FaCheckCircle className="text-2xl sm:text-3xl" />
                     </div>
 
                     {/* Prominent Success Title */}
-                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight mb-2">
+                    <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight mb-2">
                       Payment Details Captured Successfully
                     </h3>
 
                     {/* Clear Subtext */}
-                    <p className="text-xs sm:text-sm text-white/70 font-medium max-w-sm mb-5 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-white/70 font-medium max-w-sm mb-4 sm:mb-5 leading-relaxed">
                       Your payment details have been submitted successfully. Please wait for our confirmation call to verify your payment.
                     </p>
 
                     {/* Subtle Status Indicator */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-bold mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-[11px] sm:text-xs font-bold mb-5 sm:mb-6">
                       <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                       Payment Verification Pending
                     </div>
@@ -2077,7 +2077,7 @@ function CreditLimitGuard({ children }) {
                         handleCloseConfirmModal();
                         navigate('/profile');
                       }}
-                      className="w-full py-3.5 px-6 bg-white/10 hover:bg-white/20 text-white font-extrabold rounded-xl transition-all text-xs cursor-pointer border border-white/15 shadow-md"
+                      className="w-full py-3 sm:py-3.5 px-5 sm:px-6 bg-white/10 hover:bg-white/20 text-white font-extrabold rounded-xl transition-all text-xs cursor-pointer border border-white/15 shadow-md"
                     >
                       Done
                     </button>
@@ -2085,31 +2085,31 @@ function CreditLimitGuard({ children }) {
                 ) : (
                   <>
                     {/* Header */}
-                    <div className="mb-5">
+                    <div className="mb-4 sm:mb-5 pr-6">
                       <div className="flex items-center gap-2 mb-1">
-                        <div className="w-8 h-8 rounded-lg bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] text-sm">
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] text-xs sm:text-sm shrink-0">
                           💳
                         </div>
-                        <h3 className="text-xl font-black text-white tracking-tight">Payment Confirmation</h3>
+                        <h3 className="text-base sm:text-xl font-black text-white tracking-tight truncate">Payment Confirmation</h3>
                       </div>
-                      <p className="text-xs text-white/50 font-medium">
+                      <p className="text-[11px] sm:text-xs text-white/50 font-medium leading-relaxed">
                         Enter your UPI ID and upload the payment screenshot to confirm.
                       </p>
                     </div>
 
                     {/* Error Message */}
                     {confirmError && (
-                      <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-xs font-semibold flex items-center gap-2">
+                      <div className="mb-3.5 sm:mb-4 p-2.5 sm:p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-xs font-semibold flex items-center gap-2">
                         <span>⚠️</span>
                         <span>{confirmError}</span>
                       </div>
                     )}
 
                     {/* Form */}
-                    <form onSubmit={handleConfirmSubmit} className="space-y-4">
+                    <form onSubmit={handleConfirmSubmit} className="space-y-3.5 sm:space-y-4">
                       {/* UPI ID Field */}
                       <div>
-                        <label className="block text-[11px] font-bold text-white/70 uppercase tracking-wider mb-1.5">
+                        <label className="block text-[10px] sm:text-[11px] font-bold text-white/70 uppercase tracking-wider mb-1 sm:mb-1.5">
                           UPI ID <span className="text-[#25D366]">*</span>
                         </label>
                         <input 
@@ -2120,31 +2120,31 @@ function CreditLimitGuard({ children }) {
                             if (confirmError) setConfirmError('');
                           }}
                           placeholder="Enter your UPI ID"
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-white/25 outline-none focus:border-[#25D366] transition-all"
+                          className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-xs sm:text-sm text-white placeholder-white/25 outline-none focus:border-[#25D366] transition-all"
                         />
                       </div>
 
                       {/* Screenshot Upload Field */}
                       <div>
-                        <label className="block text-[11px] font-bold text-white/70 uppercase tracking-wider mb-1.5">
+                        <label className="block text-[10px] sm:text-[11px] font-bold text-white/70 uppercase tracking-wider mb-1 sm:mb-1.5">
                           Payment Screenshot <span className="text-[#25D366]">*</span>
                         </label>
                         
                         {!screenshotPreview ? (
-                          <label className="border-2 border-dashed border-white/15 hover:border-[#25D366]/50 rounded-xl p-5 flex flex-col items-center justify-center cursor-pointer transition-all bg-white/[0.02] hover:bg-white/[0.04] group">
+                          <label className="border-2 border-dashed border-white/15 hover:border-[#25D366]/50 rounded-xl p-3.5 sm:p-5 flex flex-col items-center justify-center cursor-pointer transition-all bg-white/[0.02] hover:bg-white/[0.04] group">
                             <input 
                               type="file" 
                               accept="image/*"
                               onChange={handleScreenshotUpload}
                               className="hidden"
                             />
-                            <div className="w-10 h-10 rounded-full bg-white/5 group-hover:bg-[#25D366]/10 flex items-center justify-center text-white/50 group-hover:text-[#25D366] transition-colors mb-2">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 group-hover:bg-[#25D366]/10 flex items-center justify-center text-white/50 group-hover:text-[#25D366] transition-colors mb-1.5 sm:mb-2">
                               📤
                             </div>
-                            <span className="text-xs font-bold text-white group-hover:text-[#25D366] transition-colors">
+                            <span className="text-[11px] sm:text-xs font-bold text-white group-hover:text-[#25D366] transition-colors text-center">
                               Click to upload screenshot
                             </span>
-                            <span className="text-[10px] text-white/40 mt-0.5">
+                            <span className="text-[9px] sm:text-[10px] text-white/40 mt-0.5 text-center">
                               Image files only (PNG, JPG, JPEG)
                             </span>
                           </label>
@@ -2153,10 +2153,10 @@ function CreditLimitGuard({ children }) {
                             <img 
                               src={screenshotPreview} 
                               alt="Payment Screenshot Preview" 
-                              className="max-h-44 object-contain rounded-lg w-full"
+                              className="max-h-36 sm:max-h-44 object-contain rounded-lg w-full"
                             />
                             <div className="w-full flex items-center justify-between mt-2 pt-2 border-t border-white/10 px-1">
-                              <span className="text-[11px] text-white/60 truncate max-w-[200px]">
+                              <span className="text-[10px] sm:text-[11px] text-white/60 truncate max-w-[150px] sm:max-w-[200px]">
                                 {screenshotFile ? screenshotFile.name : 'screenshot.png'}
                               </span>
                               <button
@@ -2175,17 +2175,17 @@ function CreditLimitGuard({ children }) {
                       </div>
 
                       {/* Buttons */}
-                      <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                      <div className="pt-2 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
                         <button 
                           type="button"
                           onClick={handleCloseConfirmModal}
-                          className="flex-1 py-3 px-4 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white font-bold rounded-xl border border-white/10 transition-all text-xs cursor-pointer text-center"
+                          className="flex-1 py-2.5 sm:py-3 px-4 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white font-bold rounded-xl border border-white/10 transition-all text-xs cursor-pointer text-center"
                         >
                           Cancel
                         </button>
                         <button 
                           type="submit"
-                          className="flex-1 py-3 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-black font-extrabold rounded-xl transition-all shadow-md text-xs cursor-pointer text-center"
+                          className="flex-1 py-2.5 sm:py-3 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-black font-extrabold rounded-xl transition-all shadow-md text-xs cursor-pointer text-center"
                         >
                           Submit Payment Details
                         </button>

@@ -635,7 +635,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07090A] text-[#F5F7F6] font-['Inter'] relative overflow-hidden px-5 py-10 sm:px-8 lg:px-14 lg:py-14">
+    <div className="min-h-screen bg-[#07090A] text-[#F5F7F6] font-['Inter'] relative overflow-hidden px-3.5 py-6 sm:px-8 lg:px-14 lg:py-14">
 
       <style>{`
         @keyframes goye-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -656,16 +656,16 @@ export default function Profile() {
       <div className="max-w-6xl mx-auto relative z-10">
 
         {/* Top bar */}
-        <div className="flex items-center justify-between mb-10 goye-rise">
+        <div className="flex items-center justify-between mb-6 sm:mb-10 goye-rise">
           <button onClick={() => navigate(-1)} className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl flex items-center justify-center group-hover:bg-white/[0.08] group-hover:border-[#1CE0A0]/40 transition-all">
-              <FiArrowLeft size={18} className="text-[#C9D4CF] group-hover:text-[#1CE0A0] group-hover:-translate-x-0.5 transition-all" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl flex items-center justify-center group-hover:bg-white/[0.08] group-hover:border-[#1CE0A0]/40 transition-all">
+              <FiArrowLeft size={16} className="text-[#C9D4CF] group-hover:text-[#1CE0A0] group-hover:-translate-x-0.5 transition-all" />
             </div>
             <span className="text-sm font-medium text-[#8FA39C] group-hover:text-[#E9EFEC] transition-colors hidden sm:inline">Back</span>
           </button>
 
-          <div className="flex items-center gap-2 bg-gradient-to-r from-[#F0B858]/15 to-[#F0B858]/5 border border-[#F0B858]/30 text-[#F0D9A0] px-4 py-2 rounded-full backdrop-blur-xl">
-            <FaCrown size={13} className="text-[#F0B858]" />
+          <div className="flex items-center gap-2 bg-gradient-to-r from-[#F0B858]/15 to-[#F0B858]/5 border border-[#F0B858]/30 text-[#F0D9A0] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full backdrop-blur-xl">
+            <FaCrown size={12} className="text-[#F0B858]" />
             <span className="text-xs font-semibold tracking-wide">
               {isSubscribed && !isPlanExpired ? "VIP Premium" : (isFreeUserAccount && isFreeTrial ? "Free Trial" : "Pro Plan (Locked)")}
             </span>
@@ -673,16 +673,16 @@ export default function Profile() {
         </div>
 
         {/* Page heading */}
-        <div className="mb-8 goye-rise" style={{ animationDelay: "40ms" }}>
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-[#1CE0A0] uppercase font-['JetBrains_Mono'] mb-2">Account</p>
-          <h1 className="text-4xl sm:text-5xl font-['Sora'] font-bold text-[#F5F7F6] tracking-tight">Your Profile</h1>
-          <p className="text-[#8FA39C] mt-2 text-[15px]">Manage your identity, usage, and preferences in one place.</p>
+        <div className="mb-6 sm:mb-8 goye-rise" style={{ animationDelay: "40ms" }}>
+          <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] text-[#1CE0A0] uppercase font-['JetBrains_Mono'] mb-1.5 sm:mb-2">Account</p>
+          <h1 className="text-2xl sm:text-5xl font-['Sora'] font-bold text-[#F5F7F6] tracking-tight">Your Profile</h1>
+          <p className="text-[#8FA39C] mt-1 sm:mt-2 text-xs sm:text-[15px]">Manage your identity, usage, and preferences in one place.</p>
         </div>
 
         {/* Hero identity strip */}
-        <div className="relative rounded-[28px] p-[1px] bg-gradient-to-br from-white/[0.14] via-white/[0.04] to-transparent mb-6 goye-rise" style={{ animationDelay: "80ms" }}>
-          <div className="rounded-[27px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-2xl px-6 py-8 sm:px-10 sm:py-10">
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-7">
+        <div className="relative rounded-2xl sm:rounded-[28px] p-[1px] bg-gradient-to-br from-white/[0.14] via-white/[0.04] to-transparent mb-6 goye-rise" style={{ animationDelay: "80ms" }}>
+          <div className="rounded-2xl sm:rounded-[27px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-2xl px-4 py-6 sm:px-10 sm:py-10">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-7">
 
               {/* Avatar with glowing VIP border for Subscribed or normal border for Free */}
               <div className="relative shrink-0">
@@ -776,7 +776,7 @@ export default function Profile() {
             </div>
 
             {/* Contact rows */}
-            <div className="mt-9 pt-8 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="mt-6 sm:mt-9 pt-6 sm:pt-8 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-6">
               <DetailItem icon={FiMail} title="Email" value={email} isEditing={isEditing} onChange={setEmail} />
               <DetailItem icon={FiPhone} title="Phone" value={phone} isEditing={isEditing} onChange={setPhone} />
               <DetailItem icon={FiMapPin} title="Location" value={location} isEditing={isEditing} onChange={setLocation} />
@@ -785,11 +785,11 @@ export default function Profile() {
         </div>
 
         {/* Bento stat grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6">
 
           {/* Energy Core — signature element */}
           <div className="goye-rise rounded-[28px] p-[1px] bg-gradient-to-br from-white/[0.14] via-white/[0.04] to-transparent" style={{ animationDelay: "120ms" }}>
-            <div className="h-full rounded-[27px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-2xl p-6 flex flex-col justify-between text-left relative overflow-hidden">
+            <div className="h-full rounded-[27px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-2xl p-4 sm:p-6 flex flex-col justify-between text-left relative overflow-hidden">
               {isSubscribed && !isPlanExpired ? (
                 <>
                   <div>

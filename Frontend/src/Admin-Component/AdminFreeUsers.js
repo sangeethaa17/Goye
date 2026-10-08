@@ -3,7 +3,7 @@ import { Search, Building2, Phone, MapPin, Calendar, Filter, Mail, Smartphone, B
 
 
 
-const API_BASE_URL = (process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com").replace(/\/+$/, "");
+const API_BASE_URL = (process.env.REACT_APP_API_URL || "https://goye.onrender.com").replace(/\/+$/, "");
 
 export default function AdminFreeUsers() {
   const [freeUsers, setFreeUsers] = useState([]);

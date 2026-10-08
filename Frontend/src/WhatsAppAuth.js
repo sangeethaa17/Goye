@@ -1650,30 +1650,30 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
 
                     {/* 4. Form Panel */}
                     {startClicked && (isAuthenticated || showFormOnly || isLockedOut) && (
-                        <div className={`p-4 sm:p-7 md:p-9 w-full flex flex-col transition-all duration-700 ease-in-out relative z-10 ${(showFormOnly || isLockedOut) ? 'w-full opacity-100 translate-x-0' : 'md:w-2/3 opacity-0 translate-x-10'}`}>
+                        <div className={`p-3 sm:p-7 md:p-9 w-full flex flex-col transition-all duration-700 ease-in-out relative z-10 ${(showFormOnly || isLockedOut) ? 'w-full opacity-100 translate-x-0' : 'md:w-2/3 opacity-0 translate-x-10'}`}>
 
                             {/* WhatsApp Status Banner */}
-                            <div className="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-[#14261d]/90 via-[#183124]/90 to-[#14261d]/90 border border-[#25D366]/30 rounded-2xl px-5 py-3.5 mb-7 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-xl">
+                            <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 bg-gradient-to-r from-[#14261d]/90 via-[#183124]/90 to-[#14261d]/90 border border-[#25D366]/30 rounded-2xl px-3.5 py-3 sm:px-5 sm:py-3.5 mb-5 sm:mb-7 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-xl">
                                 <div className="flex items-center gap-3">
-                                    <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] shadow-sm">
-                                        <FaWhatsapp className="text-lg" />
+                                    <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] shadow-sm shrink-0">
+                                        <FaWhatsapp className="text-base sm:text-lg" />
                                         <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-[#25D366] rounded-full ring-2 ring-[#111814] animate-pulse"></span>
                                     </div>
                                     <div className="flex flex-col">
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#25D366]">Sender Device</span>
-                                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#25D366]/20 text-[#3ce089] border border-[#25D366]/30">
+                                        <div className="flex items-center gap-1.5 sm:gap-2">
+                                            <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#25D366]">Sender Device</span>
+                                            <span className="inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-extrabold bg-[#25D366]/20 text-[#3ce089] border border-[#25D366]/30">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-ping"></span> Online
                                             </span>
                                         </div>
-                                        <span className="text-xs sm:text-sm font-mono font-bold text-white/90 tracking-wide">
+                                        <span className="text-xs sm:text-sm font-mono font-bold text-white/90 tracking-wide truncate max-w-[190px] sm:max-w-none">
                                             {connectedUser && connectedUser.id ? `+${connectedUser.id}` : "Ready & Connected"}
                                         </span>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center gap-3">
-                                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-semibold text-white/60">
+                                    <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-semibold text-white/60">
                                         <FaShieldAlt className="text-[#25D366]" />
                                         <span>End-to-End Encrypted</span>
                                     </div>
@@ -1681,16 +1681,16 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                             </div>
 
                             {/* Header Section */}
-                            <div className="flex flex-wrap items-center justify-between gap-4 mb-7 pb-6 border-b border-white/10">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-[#128C7E] to-[#25D366] p-0.5 shadow-[0_4px_20px_rgba(37,211,102,0.3)] shrink-0 flex items-center justify-center">
-                                        <div className="w-full h-full bg-[#111814] rounded-[14px] flex items-center justify-center text-[#25D366] text-xl">
+                            <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-7 pb-4 sm:pb-6 border-b border-white/10">
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-[#128C7E] to-[#25D366] p-0.5 shadow-[0_4px_20px_rgba(37,211,102,0.3)] shrink-0 flex items-center justify-center">
+                                        <div className="w-full h-full bg-[#111814] rounded-[14px] flex items-center justify-center text-[#25D366] text-base sm:text-xl">
                                             <FaPaperPlane />
                                         </div>
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2.5">
-                                            <h2 className="gy-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Message Configuration</h2>
+                                            <h2 className="gy-display text-xl sm:text-3xl font-extrabold text-white tracking-tight">Message Configuration</h2>
                                         </div>
                                         <p className="text-xs sm:text-sm text-white/50 mt-1 font-medium">Add your audience recipients, compose your message, and broadcast effortlessly.</p>
                                     </div>
@@ -1701,10 +1701,10 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                             </div>
 
                             {/* Two-column layout: Recipients | Message */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
 
                                 {/* LEFT CARD: RECIPIENTS */}
-                                <div className="bg-[#142019]/75 hover:bg-[#16241c]/85 border border-white/10 hover:border-[#25D366]/30 rounded-3xl p-5 sm:p-7 space-y-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all duration-300 flex flex-col justify-between">
+                                <div className="bg-[#142019]/75 hover:bg-[#16241c]/85 border border-white/10 hover:border-[#25D366]/30 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 space-y-4 sm:space-y-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all duration-300 flex flex-col justify-between">
                                     <div className="space-y-6">
                                         
                                         {/* Card Top Title */}
@@ -1854,61 +1854,61 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                 </div>
 
                                 {/* RIGHT CARD: MESSAGE & CONTENT */}
-                                <div className="bg-[#142019]/75 hover:bg-[#16241c]/85 border border-white/10 hover:border-[#25D366]/30 rounded-3xl p-5 sm:p-7 space-y-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all duration-300 flex flex-col justify-between">
-                                    <div className="space-y-6">
+                                <div className="bg-[#142019]/75 hover:bg-[#16241c]/85 border border-white/10 hover:border-[#25D366]/30 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 space-y-4 sm:space-y-6 shadow-[0_8px_30px_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all duration-300 flex flex-col justify-between">
+                                    <div className="space-y-4 sm:space-y-6">
 
                                         {/* Card Top Title */}
-                                        <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                                            <div className="flex items-center gap-2.5">
-                                                <div className="w-8 h-8 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] text-sm">
+                                        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10">
+                                            <div className="flex items-center gap-2 sm:gap-2.5">
+                                                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] text-xs sm:text-sm">
                                                     <FaCommentDots />
                                                 </div>
-                                                <h3 className="text-base font-extrabold text-white tracking-tight">Message Composer</h3>
+                                                <h3 className="text-sm sm:text-base font-extrabold text-white tracking-tight">Message Composer</h3>
                                             </div>
-                                            <span className="text-xs font-semibold text-white/40">
+                                            <span className="text-[11px] sm:text-xs font-semibold text-white/40">
                                                 {message.length} chars
                                             </span>
                                         </div>
 
                                         {/* Message Content */}
                                         <div>
-                                            <div className="flex items-center justify-between mb-2">
-                                                <label className="text-xs font-bold text-white/70 uppercase tracking-wider">Message Content</label>
-                                                <div className="flex items-center gap-2">
+                                            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                                <label className="text-xs font-bold text-white/70 uppercase tracking-wider shrink-0">Message Content</label>
+                                                <div className="flex items-center gap-1.5 sm:gap-2 ml-auto sm:ml-0">
                                                     {/* Custom Language Dropdown */}
                                                     <div className="relative" ref={langDropdownRef}>
                                                         <button
                                                             type="button"
                                                             onClick={() => !isListening && setIsLangDropdownOpen(!isLangDropdownOpen)}
                                                             disabled={isListening}
-                                                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all duration-300 border shadow-sm ${
+                                                            className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider transition-all duration-300 border shadow-sm ${
                                                                 isLangDropdownOpen 
                                                                     ? 'bg-[#25D366]/20 text-[#25D366] border-[#25D366] shadow-[0_0_12px_rgba(37,211,102,0.3)] ring-1 ring-[#25D366]/40' 
                                                                     : 'bg-black/60 text-[#25D366] border-[#25D366]/40 hover:border-[#25D366] hover:bg-black/80'
                                                             } ${isListening ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer active:scale-95'}`}
                                                             title="Select Voice Language"
                                                         >
-                                                            <FaGlobe className="text-xs text-[#25D366]" />
+                                                            <FaGlobe className="text-[10px] sm:text-xs text-[#25D366]" />
                                                             <span>{voiceLang === 'ta-IN' ? 'Tamil' : 'English'}</span>
-                                                            <FaChevronDown className={`text-[9px] transition-transform duration-300 ${isLangDropdownOpen ? 'rotate-180 text-[#25D366]' : 'text-[#25D366]/70'}`} />
+                                                            <FaChevronDown className={`text-[8px] sm:text-[9px] transition-transform duration-300 ${isLangDropdownOpen ? 'rotate-180 text-[#25D366]' : 'text-[#25D366]/70'}`} />
                                                         </button>
 
                                                         {/* Sleek Glassmorphism Dropdown Menu */}
                                                         {isLangDropdownOpen && (
-                                                            <div className="absolute right-0 top-full mt-2 w-40 bg-[#0d1410]/95 border border-[#25D366]/40 backdrop-blur-2xl rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.85),0_0_20px_rgba(37,211,102,0.2)] py-1.5 z-50 animate-fade-in-up overflow-hidden ring-1 ring-white/10">
+                                                            <div className="absolute right-0 top-full mt-2 w-36 sm:w-40 bg-[#0d1410]/95 border border-[#25D366]/40 backdrop-blur-2xl rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.85),0_0_20px_rgba(37,211,102,0.2)] py-1.5 z-50 animate-fade-in-up overflow-hidden ring-1 ring-white/10">
                                                                 <button
                                                                     type="button"
                                                                     onClick={() => {
                                                                         setVoiceLang('en-US');
                                                                         setIsLangDropdownOpen(false);
                                                                     }}
-                                                                    className={`w-full flex items-center justify-between px-3.5 py-2.5 text-xs font-bold transition-all ${
+                                                                    className={`w-full flex items-center justify-between px-3 py-2 text-xs font-bold transition-all ${
                                                                         voiceLang === 'en-US' 
                                                                             ? 'bg-[#25D366]/20 text-[#25D366]' 
                                                                             : 'text-white/80 hover:bg-white/10 hover:text-white'
                                                                     }`}
                                                                 >
-                                                                    <div className="flex items-center gap-2.5">
+                                                                    <div className="flex items-center gap-2">
                                                                         <span className="text-sm">🇬🇧</span>
                                                                         <span>English</span>
                                                                     </div>
@@ -1921,13 +1921,13 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                                                         setVoiceLang('ta-IN');
                                                                         setIsLangDropdownOpen(false);
                                                                     }}
-                                                                    className={`w-full flex items-center justify-between px-3.5 py-2.5 text-xs font-bold transition-all border-t border-white/5 ${
+                                                                    className={`w-full flex items-center justify-between px-3 py-2 text-xs font-bold transition-all border-t border-white/5 ${
                                                                         voiceLang === 'ta-IN' 
                                                                             ? 'bg-[#25D366]/20 text-[#25D366]' 
                                                                             : 'text-white/80 hover:bg-white/10 hover:text-white'
                                                                     }`}
                                                                 >
-                                                                    <div className="flex items-center gap-2.5">
+                                                                    <div className="flex items-center gap-2">
                                                                         <span className="text-sm">🇮🇳</span>
                                                                         <span>Tamil (தமிழ்)</span>
                                                                     </div>
@@ -1939,15 +1939,15 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                                     <button
                                                         type="button"
                                                         onClick={toggleVoiceInput}
-                                                        className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-black transition-all duration-300 cursor-pointer shadow-md select-none active:scale-95 ${
+                                                        className={`inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-black transition-all duration-300 cursor-pointer shadow-md select-none active:scale-95 shrink-0 ${
                                                             isListening 
                                                                 ? 'bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-[0_0_20px_rgba(239,68,68,0.5)] border border-red-400 animate-pulse' 
                                                                 : 'bg-gradient-to-r from-[#25D366] to-[#128C7E] text-black hover:opacity-95 shadow-[0_3px_15px_rgba(37,211,102,0.4)] hover:shadow-[0_4px_22px_rgba(37,211,102,0.6)] hover:-translate-y-0.5 border border-[#34E38A]/50'
                                                         }`}
                                                         title="Click to speak and convert voice to text"
                                                     >
-                                                        <FaMicrophone className={isListening ? 'animate-bounce text-white text-sm' : 'text-black text-xs'} />
-                                                        <span>{isListening ? 'Listening...' : 'Voice to Text'}</span>
+                                                        <FaMicrophone className={isListening ? 'animate-bounce text-white text-xs sm:text-sm' : 'text-black text-[10px] sm:text-xs'} />
+                                                        <span className="whitespace-nowrap">{isListening ? 'Listening...' : 'Voice to Text'}</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -1956,7 +1956,7 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                                 value={message}
                                                 onChange={(e) => setMessage(e.target.value)}
                                                 placeholder="Type your broadcast message here... or click 'Voice to Text' to speak."
-                                                className="w-full px-4 py-3.5 bg-black/30 border border-white/10 rounded-2xl text-sm text-white placeholder:text-white/25 outline-none focus:bg-black/50 focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/20 transition-all resize-none shadow-inner leading-relaxed"
+                                                className="w-full px-3.5 py-3 sm:px-4 sm:py-3.5 bg-black/30 border border-white/10 rounded-xl sm:rounded-2xl text-xs sm:text-sm text-white placeholder:text-white/25 outline-none focus:bg-black/50 focus:border-[#25D366] focus:ring-2 focus:ring-[#25D366]/20 transition-all resize-none shadow-inner leading-relaxed"
                                             ></textarea>
                                         </div>
 
@@ -1969,10 +1969,10 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                                 <span className="text-[10px] text-white/40">Max 3 Img, 2 Docs, 1 Vid</span>
                                             </div>
 
-                                            <div className="relative border-2 border-dashed border-white/15 hover:border-[#25D366] hover:bg-[#25D366]/5 rounded-2xl p-4 transition-all duration-300 cursor-pointer bg-black/20 group/media">
-                                                <div className="flex items-center justify-center gap-2.5 py-1">
-                                                    <FaCloudUploadAlt className="text-xl text-[#25D366] group-hover/media:-translate-y-0.5 transition-transform" />
-                                                    <span className="text-xs sm:text-sm text-white/60 font-medium">
+                                            <div className="relative border-2 border-dashed border-white/15 hover:border-[#25D366] hover:bg-[#25D366]/5 rounded-xl sm:rounded-2xl p-3 sm:p-4 transition-all duration-300 cursor-pointer bg-black/20 group/media">
+                                                <div className="flex items-center justify-center gap-2 py-0.5 sm:py-1">
+                                                    <FaCloudUploadAlt className="text-lg sm:text-xl text-[#25D366] group-hover/media:-translate-y-0.5 transition-transform" />
+                                                    <span className="text-xs sm:text-sm text-white/60 font-medium text-center">
                                                         Attach Images, Videos, or Documents
                                                     </span>
                                                 </div>
@@ -1987,7 +1987,7 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
 
                                             {/* Media Files list */}
                                             {mediaFiles.length > 0 && (
-                                                <div className="mt-3 p-3 bg-white/[0.02] border border-white/10 rounded-2xl space-y-2">
+                                                <div className="mt-3 p-2.5 sm:p-3 bg-white/[0.02] border border-white/10 rounded-xl sm:rounded-2xl space-y-2">
                                                     <div className="flex items-center justify-between text-xs pb-2 border-b border-white/10">
                                                         <span className="font-bold text-[#25D366]">
                                                             {mediaFiles.length} {mediaFiles.length === 1 ? 'file' : 'files'} attached
@@ -2000,10 +2000,10 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                                             Remove all
                                                         </button>
                                                     </div>
-                                                    <div className="flex flex-wrap gap-2 pt-1">
+                                                    <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
                                                         {mediaFiles.map((m, idx) => (
-                                                            <div key={idx} className="inline-flex items-center gap-2 bg-[#25D366]/10 border border-[#25D366]/25 text-white text-xs px-3 py-1.5 rounded-xl">
-                                                                <span className="truncate max-w-[130px] font-medium">{m.filename}</span>
+                                                            <div key={idx} className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#25D366]/10 border border-[#25D366]/25 text-white text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl max-w-full">
+                                                                <span className="truncate max-w-[120px] sm:max-w-[140px] font-medium">{m.filename}</span>
                                                                 <button
                                                                     type="button"
                                                                     onClick={(e) => removeMediaFileItem(idx, e)}
@@ -2021,16 +2021,26 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
 
                                         {/* Smart Scheduler Section */}
                                         {isSubscribedUser ? (
-                                            <div className="p-4 bg-white/[0.02] rounded-2xl border border-white/10 space-y-4">
-                                                <div className="flex items-center justify-between">
-                                                    <div className="flex items-center gap-3">
-                                                        <div 
-                                                            className={`w-11 h-6 rounded-full p-0.5 cursor-pointer transition-colors duration-300 flex items-center ${isScheduling ? 'bg-[#25D366]' : 'bg-white/20'}`} 
-                                                            onClick={() => setIsScheduling(!isScheduling)}
-                                                        >
-                                                            <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${isScheduling ? 'translate-x-5' : 'translate-x-0'}`}></div>
+                                            <div className="p-3 sm:p-4 bg-white/[0.02] rounded-2xl border border-white/10 space-y-3 sm:space-y-4">
+                                                <div className="flex items-center justify-between gap-3">
+                                                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                                                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center text-sm sm:text-lg shrink-0">
+                                                            <FiClock size={16} />
                                                         </div>
-                                                        <span className="text-base font-bold text-white/90">Schedule this message for later</span>
+                                                        <div className="min-w-0">
+                                                            <span className="text-xs sm:text-base font-bold text-white/90 block truncate">
+                                                                Schedule Message
+                                                            </span>
+                                                            <span className="text-[10px] sm:text-xs text-white/50 block truncate">
+                                                                Broadcast at a later date & time
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div 
+                                                        className={`w-11 h-6 rounded-full p-0.5 cursor-pointer transition-colors duration-300 flex items-center shrink-0 ${isScheduling ? 'bg-[#25D366]' : 'bg-white/20'}`} 
+                                                        onClick={() => setIsScheduling(!isScheduling)}
+                                                    >
+                                                        <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${isScheduling ? 'translate-x-5' : 'translate-x-0'}`}></div>
                                                     </div>
                                                 </div>
                                                 
@@ -2147,32 +2157,37 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
 
                                         {/* Message Delay / Sending Interval */}
                                         {isSubscribedUser ? (
-                                            <div className="p-4 bg-white/[0.02] hover:bg-white/[0.04] rounded-2xl border border-white/10 transition-all duration-200">
-                                                <div className="flex items-center justify-between gap-3">
-                                                    <div className="flex items-center gap-3">
-                                                        <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 text-[#25D366] flex items-center justify-center text-lg shrink-0">
+                                            <div className="p-3 sm:p-4 bg-white/[0.02] hover:bg-white/[0.04] rounded-2xl border border-white/10 transition-all duration-200">
+                                                <div className="flex items-center justify-between gap-2">
+                                                    <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                                                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/[0.04] border border-white/10 text-[#25D366] flex items-center justify-center text-sm sm:text-lg shrink-0">
                                                             <FiClock />
                                                         </div>
-                                                        <span className="text-base font-bold text-white/90">
-                                                            Message Delay
-                                                        </span>
+                                                        <div className="min-w-0">
+                                                            <span className="text-xs sm:text-base font-bold text-white/90 block truncate">
+                                                                Message Delay
+                                                            </span>
+                                                            <span className="text-[10px] sm:text-xs text-white/40 block truncate">
+                                                                Outgoing interval
+                                                            </span>
+                                                        </div>
                                                     </div>
 
                                                     <div className="relative shrink-0">
                                                         <select
                                                             value={delayOption}
                                                             onChange={(e) => setDelayOption(e.target.value)}
-                                                            className="h-10 pl-3.5 pr-8 bg-black/50 border border-white/15 hover:border-white/30 rounded-xl text-white font-semibold text-xs sm:text-sm focus:border-[#25D366] outline-none cursor-pointer appearance-none transition-colors"
+                                                            className="h-8 sm:h-10 pl-2 sm:pl-3.5 pr-6 sm:pr-8 bg-black/60 border border-white/15 hover:border-white/30 rounded-xl text-white font-bold text-[11px] sm:text-sm focus:border-[#25D366] outline-none cursor-pointer appearance-none transition-colors"
                                                         >
-                                                            <option value="1" className="bg-[#18181b] text-white">1s (Ultra Fast)</option>
-                                                            <option value="2" className="bg-[#18181b] text-white">2s (Standard - Default)</option>
-                                                            <option value="3" className="bg-[#18181b] text-white">3s (Recommended)</option>
+                                                            <option value="1" className="bg-[#18181b] text-white">1s (Fast)</option>
+                                                            <option value="2" className="bg-[#18181b] text-white">2s (Default)</option>
+                                                            <option value="3" className="bg-[#18181b] text-white">3s (Best)</option>
                                                             <option value="5" className="bg-[#18181b] text-white">5s (Safe)</option>
-                                                            <option value="10" className="bg-[#18181b] text-white">10s (High Safe)</option>
+                                                            <option value="10" className="bg-[#18181b] text-white">10s (High)</option>
                                                             <option value="custom" className="bg-[#18181b] text-[#25D366] font-bold">⚙️ Custom</option>
                                                         </select>
-                                                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2.5 text-white/40">
-                                                            <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 20 20">
+                                                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1.5 sm:pr-2 text-white/40">
+                                                            <svg className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-current" viewBox="0 0 20 20">
                                                                 <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                                                             </svg>
                                                         </div>
@@ -2181,7 +2196,7 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
 
                                                 {/* Expandable Custom Delay Input */}
                                                 {delayOption === "custom" && (
-                                                    <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between gap-3 animate-fade-in-up">
+                                                    <div className="mt-2.5 pt-2.5 border-t border-white/10 flex items-center justify-between gap-3 animate-fade-in-up">
                                                         <span className="text-xs text-white/60 font-medium">
                                                             Enter delay duration:
                                                         </span>
@@ -2208,29 +2223,29 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                         ) : (
                                             <div 
                                                 onClick={() => window.dispatchEvent(new Event("gy:open-plans-modal"))}
-                                                className="p-3.5 sm:p-4 bg-white/[0.02] hover:bg-white/[0.05] rounded-2xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 cursor-pointer flex items-center justify-between gap-2.5 sm:gap-3 group"
+                                                className="p-3 sm:p-4 bg-white/[0.02] hover:bg-white/[0.05] rounded-2xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 cursor-pointer flex items-center justify-between gap-2 sm:gap-3 group"
                                             >
-                                                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
-                                                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center text-base sm:text-lg shrink-0">
-                                                        <FiClock size={18} />
+                                                <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                                                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center text-sm sm:text-lg shrink-0">
+                                                        <FiClock size={16} />
                                                     </div>
                                                     <div className="min-w-0 flex-1">
-                                                        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                                                            <span className="text-xs sm:text-sm md:text-base font-bold text-white/90 group-hover:text-white transition-colors truncate">
+                                                        <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+                                                            <span className="text-xs sm:text-base font-bold text-white/90 group-hover:text-white transition-colors truncate">
                                                                 Message Delay
                                                             </span>
                                                             <span className="text-[9px] sm:text-[10px] font-extrabold px-1.5 sm:px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-black uppercase tracking-wider inline-flex items-center gap-0.5 shrink-0 shadow-sm">
                                                                 🔒 PRO
                                                             </span>
                                                         </div>
-                                                        <p className="text-[11px] sm:text-xs text-white/50 group-hover:text-white/70 transition-colors line-clamp-1 sm:line-clamp-none mt-0.5">
-                                                            Custom message intervals (1s - 120s) • Upgrade to Pro to unlock
+                                                        <p className="text-[10px] sm:text-xs text-white/50 group-hover:text-white/70 transition-colors line-clamp-1 sm:line-clamp-none mt-0.5">
+                                                            Custom intervals (1s - 120s) • Upgrade to Pro
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <button 
                                                     type="button"
-                                                    className="shrink-0 px-2.5 sm:px-3.5 py-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400 text-amber-300 group-hover:text-black text-[11px] sm:text-xs font-bold transition-all border border-amber-400/30 flex items-center gap-1 whitespace-nowrap"
+                                                    className="shrink-0 px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400 text-amber-300 group-hover:text-black text-[10px] sm:text-xs font-bold transition-all border border-amber-400/30 flex items-center gap-1 whitespace-nowrap"
                                                 >
                                                     <span>View Plans</span>
                                                     <span className="text-xs sm:text-sm">→</span>
@@ -2240,30 +2255,30 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
 
                                         {/* Goyee AI 24/7 Customer Support & Sales Auto-Reply Card */}
                                         {isSubscribedUser ? (
-                                            <div className="p-4 bg-white/[0.02] hover:bg-white/[0.03] rounded-2xl border border-white/10 transition-all duration-300">
-                                                <div className="flex items-center justify-between gap-3">
-                                                    <div className="flex items-center gap-3">
-                                                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-lg shrink-0">
-                                                            <FaRobot className="text-xl text-indigo-400" />
+                                            <div className="p-3 sm:p-4 bg-white/[0.02] hover:bg-white/[0.03] rounded-2xl border border-white/10 transition-all duration-300">
+                                                <div className="flex items-center justify-between gap-2">
+                                                    <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                                                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-sm sm:text-lg shrink-0">
+                                                            <FaRobot className="text-sm sm:text-lg text-indigo-400" />
                                                         </div>
-                                                        <div>
-                                                            <div className="flex items-center gap-2">
-                                                                <span className="text-base font-bold text-white/90">
-                                                                    Goyee AI 24/7 Auto-Reply
+                                                        <div className="min-w-0">
+                                                            <div className="flex items-center gap-1.5">
+                                                                <span className="text-xs sm:text-base font-bold text-white/90 truncate">
+                                                                    Goyee AI Auto-Reply
                                                                 </span>
                                                                 {aiEnabled ? (
-                                                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-[#25D366] border border-emerald-500/30 flex items-center gap-1">
+                                                                    <span className="text-[9px] sm:text-[10px] font-extrabold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-[#25D366] border border-emerald-500/30 inline-flex items-center gap-1 shrink-0">
                                                                         <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span>
                                                                         ACTIVE
                                                                     </span>
                                                                 ) : (
-                                                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10">
-                                                                        INACTIVE
+                                                                    <span className="text-[9px] sm:text-[10px] font-extrabold px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 border border-white/15 shrink-0">
+                                                                        OFF
                                                                     </span>
                                                                 )}
                                                             </div>
-                                                            <p className="text-xs text-white/50">
-                                                                24/7 AI WhatsApp customer support & sales agent
+                                                            <p className="text-[10px] sm:text-xs text-white/50 truncate">
+                                                                24/7 AI WhatsApp customer support
                                                             </p>
                                                         </div>
                                                     </div>
@@ -2271,22 +2286,22 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                                     <button
                                                         type="button"
                                                         onClick={handleToggleAi}
-                                                        className={`w-12 h-6 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 ${aiEnabled ? 'bg-[#25D366]' : 'bg-white/20'}`}
+                                                        className={`w-11 sm:w-12 h-6 flex items-center rounded-full p-0.5 sm:p-1 cursor-pointer transition-colors duration-300 shrink-0 ${aiEnabled ? 'bg-[#25D366]' : 'bg-white/20'}`}
                                                         title={aiEnabled ? "Turn OFF Goyee AI" : "Turn ON Goyee AI"}
                                                     >
-                                                        <div className={`bg-black w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 ${aiEnabled ? 'translate-x-6' : 'translate-x-0'}`} />
+                                                        <div className={`bg-black w-5 sm:w-4 h-5 sm:h-4 rounded-full shadow-md transform transition-transform duration-300 ${aiEnabled ? 'translate-x-5 sm:translate-x-6' : 'translate-x-0'}`} />
                                                     </button>
                                                 </div>
 
                                                 {/* AI Knowledge Base & Settings Area */}
-                                                <div className="mt-4 pt-3 border-t border-white/10 space-y-3">
+                                                <div className="mt-3 pt-2.5 border-t border-white/10 space-y-2">
                                                     <div>
-                                                        <div className="flex items-center justify-between mb-1.5">
-                                                            <label className="text-xs font-semibold text-white/80">
-                                                                Business Details, Daily Rates & Offers:
+                                                        <div className="flex items-center justify-between gap-1 mb-1.5">
+                                                            <label className="text-xs font-semibold text-white/80 truncate">
+                                                                Business Details & FAQs:
                                                             </label>
-                                                            <span className="text-[10px] text-white/40">
-                                                                AI strictly grounds replies on this
+                                                            <span className="text-[10px] text-white/40 shrink-0">
+                                                                AI grounds replies
                                                             </span>
                                                         </div>
                                                         <textarea
@@ -2387,21 +2402,21 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                             </div>
 
                             {/* Bottom Action Controls */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-6 border-t border-white/10 relative z-10">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 relative z-10">
                                 <button 
                                     onClick={sendBulkMessages} 
                                     disabled={isSubmittingSchedule}
-                                    className={`gy-shine-btn w-full h-[54px] flex items-center justify-center gap-3 text-black font-extrabold rounded-2xl shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] transition-all duration-300 text-sm sm:text-base bg-gradient-to-r from-[#25D366] via-[#22c55e] to-[#128C7E] ${isSubmittingSchedule ? 'opacity-70 cursor-not-allowed' : 'hover:scale-[1.02] active:scale-[0.98] cursor-pointer'}`} 
+                                    className={`gy-shine-btn w-full h-[48px] sm:h-[54px] flex items-center justify-center gap-2.5 sm:gap-3 text-black font-extrabold rounded-xl sm:rounded-2xl shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] transition-all duration-300 text-sm sm:text-base bg-gradient-to-r from-[#25D366] via-[#22c55e] to-[#128C7E] ${isSubmittingSchedule ? 'opacity-70 cursor-not-allowed' : 'hover:scale-[1.02] active:scale-[0.98] cursor-pointer'}`} 
                                 >
                                     <span className="gy-shine"></span>
                                     {isSubmittingSchedule ? (
                                         <>
-                                            <FaSpinner className="animate-spin text-lg" />
-                                            <span>Scheduling broadcast... Please wait</span>
+                                            <FaSpinner className="animate-spin text-base sm:text-lg" />
+                                            <span>Scheduling broadcast...</span>
                                         </>
                                     ) : (
                                         <>
-                                            <FaPaperPlane className="text-base" /> 
+                                            <FaPaperPlane className="text-sm sm:text-base" /> 
                                             <span>{isScheduling ? "Schedule Broadcast" : "Send Broadcast Messages"}</span>
                                         </>
                                     )}
@@ -2432,7 +2447,7 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                         }
                                         setShowTeamModal(true);
                                     }}
-                                    className={`w-full h-[54px] flex items-center justify-center gap-2.5 px-4 font-bold rounded-2xl border transition-all duration-300 text-sm sm:text-base relative overflow-hidden group hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${
+                                    className={`w-full h-[48px] sm:h-[54px] flex items-center justify-center gap-2 sm:gap-2.5 px-4 font-bold rounded-xl sm:rounded-2xl border transition-all duration-300 text-xs sm:text-base relative overflow-hidden group hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${
                                         (() => {
                                             const expiresAt = localStorage.getItem("subscriptionExpiresAt");
                                             const isSubscribedVal = localStorage.getItem("isSubscribed") === "true";
@@ -2569,11 +2584,11 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
 
             {/* ============ SEND PROGRESS POPUP ============ */}
             {sendProgress && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in-up">
-                    <div className="gy-pop w-full max-w-md bg-[#111B21] border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden p-8 text-center">
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in-up">
+                    <div className="gy-pop w-full max-w-md bg-[#111B21] border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden p-4 sm:p-8 text-center max-h-[94vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                         <div className="flex justify-between items-start mb-2">
                             <div className="w-6 h-6"></div> {/* Spacer */}
-                            <h3 className="gy-display text-xl font-bold text-white">
+                            <h3 className="gy-display text-base sm:text-xl font-bold text-white truncate px-1">
                                 {sendProgress.done ? "Send Complete" : (isScheduling ? "Scheduling Messages..." : "Sending Bulk Messages...")}
                             </h3>
                             {sendProgress.done ? (
@@ -2581,7 +2596,7 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                     type="button"
                                     onClick={() => setSendProgress(null)}
                                     aria-label="Close"
-                                    className="w-6 h-6 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors duration-200"
+                                    className="w-6 h-6 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors duration-200 cursor-pointer"
                                 >
                                     <FaTimes className="text-xs" />
                                 </button>
@@ -2589,35 +2604,35 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                                 <div className="w-6 h-6"></div>
                             )}
                         </div>
-                        <p className="text-sm text-white/50 mb-6">
+                        <p className="text-xs sm:text-sm text-white/50 mb-4 sm:mb-6 leading-relaxed">
                             {sendProgress.done ? "Your message campaign has finished." : `Please wait while your messages are being ${isScheduling ? "scheduled" : "sent"}.`}
                         </p>
                         
                         {/* Progress Bar Line */}
-                        <div className="w-full bg-white/10 rounded-full h-3 mb-2 overflow-hidden">
+                        <div className="w-full bg-white/10 rounded-full h-2.5 sm:h-3 mb-2 overflow-hidden">
                             <div 
-                                className="bg-[#25D366] h-3 rounded-full transition-all duration-300" 
+                                className="bg-[#25D366] h-2.5 sm:h-3 rounded-full transition-all duration-300" 
                                 style={{ width: `${sendProgress.total > 0 ? (sendProgress.processed / sendProgress.total) * 100 : 0}%` }}
                             ></div>
                         </div>
                         
                         {/* Percentage Text */}
-                        <p className="text-sm font-bold text-[#25D366] mb-6">
+                        <p className="text-xs sm:text-sm font-bold text-[#25D366] mb-4 sm:mb-6">
                             {Math.round(sendProgress.total > 0 ? (sendProgress.processed / sendProgress.total) * 100 : 0)}%
                         </p>
 
-                        <div className="grid grid-cols-2 gap-4 mb-6">
+                        <div className="grid grid-cols-2 gap-2.5 sm:gap-4 mb-4 sm:mb-6">
                             {/* Processed Count Box */}
-                            <div className="bg-[#25D366]/10 p-3 rounded-xl border border-[#25D366]/20">
-                                <p className="text-xs text-[#25D366] font-bold uppercase">Processed</p>
-                                <p className="text-lg font-extrabold text-white mt-1">
+                            <div className="bg-[#25D366]/10 p-2.5 sm:p-3 rounded-xl border border-[#25D366]/20">
+                                <p className="text-[10px] sm:text-xs text-[#25D366] font-bold uppercase">Processed</p>
+                                <p className="text-sm sm:text-lg font-extrabold text-white mt-0.5 sm:mt-1 truncate">
                                     {sendProgress.processed} / {sendProgress.total}
                                 </p>
                             </div>
                             {/* Failed Count Box */}
-                            <div className="bg-red-500/10 p-3 rounded-xl border border-red-500/20">
-                                <p className="text-xs text-red-400 font-bold uppercase">Failed</p>
-                                <p className="text-lg font-extrabold text-white mt-1">
+                            <div className="bg-red-500/10 p-2.5 sm:p-3 rounded-xl border border-red-500/20">
+                                <p className="text-[10px] sm:text-xs text-red-400 font-bold uppercase">Failed</p>
+                                <p className="text-sm sm:text-lg font-extrabold text-white mt-0.5 sm:mt-1 truncate">
                                     {sendProgress.failed}
                                 </p>
                             </div>
@@ -2625,11 +2640,11 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                         
                         {/* Currently Sending Number Display */}
                         {!sendProgress.done && (
-                            <div className="bg-white/[0.03] p-3 rounded-xl text-left border border-white/[0.07] mb-6">
-                                <p className="text-xs text-white/40 font-semibold mb-1">
+                            <div className="bg-white/[0.03] p-2.5 sm:p-3 rounded-xl text-left border border-white/[0.07] mb-4 sm:mb-6">
+                                <p className="text-[10px] sm:text-xs text-white/40 font-semibold mb-0.5 sm:mb-1">
                                     Currently {isScheduling ? "Scheduling" : "Sending"}:
                                 </p>
-                                <p className="font-mono text-sm font-bold text-white/80 truncate">
+                                <p className="font-mono text-xs sm:text-sm font-bold text-white/80 truncate">
                                     {sendProgress.currentNumber || "Initializing..."}
                                 </p>
                             </div>
@@ -2637,8 +2652,8 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
 
                         {/* Failed Numbers List */}
                         {failedList.length > 0 && (
-                            <div className="bg-black/20 rounded-xl p-3 border border-white/5 max-h-40 overflow-y-auto mb-6 text-left space-y-2">
-                                <p className="text-xs font-bold text-red-400 uppercase tracking-wide mb-2">Failure Log</p>
+                            <div className="bg-black/20 rounded-xl p-2.5 sm:p-3 border border-white/5 max-h-36 sm:max-h-40 overflow-y-auto mb-4 sm:mb-6 text-left space-y-2">
+                                <p className="text-[10px] sm:text-xs font-bold text-red-400 uppercase tracking-wide mb-1.5 sm:mb-2">Failure Log</p>
                                 {failedList.map((item, idx) => (
                                     <div key={idx} className="text-xs border-b border-white/5 pb-2 last:border-b-0 last:pb-0">
                                         <div className="font-bold text-white flex items-center justify-between">
@@ -2657,13 +2672,13 @@ A free, fast, and reliable WhatsApp bulk messaging software for businesses and t
                             <button
                                 type="button"
                                 onClick={() => setSendProgress(null)}
-                                className="w-full py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+                                className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                                 style={{ backgroundColor: "#25D366" }}
                             >
                                 Done
                             </button>
                         ) : (
-                            <p className="text-xs text-white/30">Please keep this tab open until sending finishes.</p>
+                            <p className="text-[11px] sm:text-xs text-white/30">Please keep this tab open until sending finishes.</p>
                         )}
                     </div>
                 </div>

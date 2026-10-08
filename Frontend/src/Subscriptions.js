@@ -250,7 +250,7 @@ export default function Subscriptions() {
             const planName = (modalPlan && planDetails[modalPlan] && planDetails[modalPlan].name) || "One Day";
             const planPrice = (modalPlan && planDetails[modalPlan] && planDetails[modalPlan].price) || "₹49";
 
-            const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goyeorg.onrender.com';
+            const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goye.onrender.com';
             const response = await fetch(`${apiBaseUrl}/api/subscription-requests`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1038,7 +1038,7 @@ export default function Subscriptions() {
                                     onSubmit={async (e) => {
                                         e.preventDefault();
                                         try {
-                                            const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goyeorg.onrender.com';
+                                            const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goye.onrender.com';
                                             const response = await fetch(`${apiBaseUrl}/api/subscription-requests`, {
                                                 method: 'POST',
                                                 headers: { 'Content-Type': 'application/json' },

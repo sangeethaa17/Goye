@@ -212,7 +212,7 @@ export default function Navbar() {
     };
 
     try {
-      const response = await fetch("https://goyeorg.onrender.com/api/support", {
+      const response = await fetch("https://goye.onrender.com/api/support", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -1408,7 +1408,7 @@ export default function Navbar() {
         {/* Mobile slide-down menu */}
         {mobileOpen && (
           <div
-            className="gy-panel-in md:hidden absolute left-0 right-0 top-full mx-3 mt-2 rounded-2xl overflow-hidden shadow-2xl max-h-[calc(100vh-5rem)] overflow-y-auto"
+            className="gy-panel-in md:hidden absolute left-0 right-0 top-full mx-2 sm:mx-3 mt-2 rounded-2xl overflow-hidden shadow-2xl max-h-[calc(100vh-4.5rem)] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             style={{
               background: "linear-gradient(160deg, rgba(4,32,20,0.98) 0%, rgba(7,52,32,0.98) 100%)",
               border: "1px solid rgba(52,227,138,0.2)",
@@ -1417,7 +1417,7 @@ export default function Navbar() {
             role="dialog"
             aria-modal="true"
           >
-            <ul className="flex flex-col px-3 py-4 gap-1">
+            <ul className="flex flex-col px-2.5 sm:px-3 py-3 sm:py-4 gap-1 pb-6">
               {navLinks.map((link, i) => {
                 const isActive = isLinkActive(link);
                 const isLocked = link.isRestricted;
@@ -1839,7 +1839,7 @@ export default function Navbar() {
 
       {/* Enhanced Premium Floating Goye AI Assistant Trigger Widget */}
       {(isLoggedIn || isFreeUserLoggedIn) && !isAdminPage && (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] group flex items-center select-none">
+        <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-[100] group flex items-center select-none">
           <style>{`
             @keyframes gyAiBreathe {
               0%, 100% { transform: translateY(0px); }
@@ -1923,18 +1923,18 @@ export default function Navbar() {
             <div className="absolute -inset-3 sm:-inset-4 rounded-full bg-[#25D366]/30 blur-2xl pointer-events-none transition-all duration-300 ease-out group-hover:bg-[#25D366]/55 group-hover:blur-3xl gy-ai-ambient" />
 
             {/* Ground Shadow */}
-            <div className="absolute -bottom-2 w-20 sm:w-24 h-4 rounded-full bg-[#25D366]/25 blur-lg pointer-events-none transition-all duration-300 group-hover:bg-[#25D366]/50" />
+            <div className="absolute -bottom-2 w-12 sm:w-24 h-3 sm:h-4 rounded-full bg-[#25D366]/25 blur-lg pointer-events-none transition-all duration-300 group-hover:bg-[#25D366]/50" />
 
-            {/* Main Interactive Bot Button - Large, Crisp, Prominent */}
+            {/* Main Interactive Bot Button - Large on desktop, sleek & compact on mobile */}
             <button
               onClick={() => setBotOpen(!botOpen)}
               type="button"
-              className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2.5px] bg-gradient-to-tr from-[#25D366] via-[#34E38A] to-[#128C7E] shadow-[0_12px_36px_rgba(0,0,0,0.8),0_0_28px_rgba(37,211,102,0.35)] hover:shadow-[0_16px_45px_rgba(0,0,0,0.9),0_0_42px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 ease-out cursor-pointer flex items-center justify-center overflow-hidden group/btn"
+              className="relative w-14 h-14 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full p-[2px] sm:p-[2.5px] bg-gradient-to-tr from-[#25D366] via-[#34E38A] to-[#128C7E] shadow-[0_8px_25px_rgba(0,0,0,0.8),0_0_18px_rgba(37,211,102,0.35)] sm:shadow-[0_12px_36px_rgba(0,0,0,0.8),0_0_28px_rgba(37,211,102,0.35)] hover:shadow-[0_16px_45px_rgba(0,0,0,0.9),0_0_42px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 ease-out cursor-pointer flex items-center justify-center overflow-hidden group/btn"
               aria-label="Toggle Goye AI Assistant"
             >
               {botOpen ? (
                 <div className="w-full h-full rounded-full bg-[#0D1117]/95 flex items-center justify-center text-white backdrop-blur-md transition-all">
-                  <FiX className="text-3xl sm:text-4xl text-white transition-transform duration-300 rotate-0 group-hover/btn:rotate-90" />
+                  <FiX className="text-xl sm:text-3xl md:text-4xl text-white transition-transform duration-300 rotate-0 group-hover/btn:rotate-90" />
                 </div>
               ) : (
                 <div className="relative w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-gradient-to-b from-[#14231E] via-[#0E1714] to-[#080D0B] border border-black/40">
@@ -1968,24 +1968,24 @@ export default function Navbar() {
 
       {/* Help & Support Modal */}
       {helpModalOpen && (
-        <div className="fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-sm gy-fade-in">
+        <div className="fixed inset-0 z-[150] flex items-center justify-center p-2.5 sm:p-4 bg-black/85 backdrop-blur-sm gy-fade-in">
           <div 
-            className="bg-[#0E1613] border border-white/10 rounded-2xl shadow-2xl w-full max-w-md p-5 sm:p-6 relative max-h-[92vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden transition-all transform gy-scale-up text-white"
+            className="bg-[#0E1613] border border-white/10 rounded-2xl shadow-2xl w-full max-w-md p-4 sm:p-6 relative max-h-[94vh] sm:max-h-[92vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden transition-all transform gy-scale-up text-white"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {/* Close Button */}
             <button
               onClick={() => setHelpModalOpen(false)}
-              className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors p-1.5 rounded-full hover:bg-white/5 z-10"
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 text-white/50 hover:text-white transition-colors p-1.5 rounded-full hover:bg-white/5 z-10 cursor-pointer"
             >
-              <FiX size={20} />
+              <FiX size={18} />
             </button>
 
             {successState ? (
               renderSuccess()
             ) : (
               <>
-                <h3 className="text-xl font-bold text-white mb-6 font-['Space_Grotesk']">Help & Support</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6 font-['Space_Grotesk']">Help & Support</h3>
 
                 {/* Tabs Header */}
                 <div className="flex border-b border-white/10 mb-6">

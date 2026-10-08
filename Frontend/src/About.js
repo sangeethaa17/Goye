@@ -261,7 +261,7 @@ export default function About() {
             const planName = (modalPlan && planDetails[modalPlan] && planDetails[modalPlan].name) || "One Day";
             const planPrice = (modalPlan && planDetails[modalPlan] && planDetails[modalPlan].price) || "₹49";
 
-            const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goyeorg.onrender.com';
+            const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goye.onrender.com';
             const response = await fetch(`${apiBaseUrl}/api/subscription-requests`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -430,25 +430,25 @@ export default function About() {
                 </div>
 
                 {/* --- Brand-New Premium Comparison Section --- */}
-                <div className="gy-pop mt-20 relative bg-white/[0.02] backdrop-blur-3xl rounded-[1.5rem] sm:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-white/10 p-6 sm:p-12 md:p-16 flex flex-col items-center justify-center overflow-hidden" style={{ animationDelay: '200ms' }}>
+                <div className="gy-pop mt-12 sm:mt-20 relative bg-white/[0.02] backdrop-blur-3xl rounded-2xl sm:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-white/10 p-3.5 sm:p-12 md:p-16 flex flex-col items-center justify-center overflow-hidden" style={{ animationDelay: '200ms' }}>
                     
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#25D366]/10 text-[#25D366] font-bold text-xs sm:text-sm tracking-widest uppercase rounded-full mb-6 border border-[#25D366]/20">
+                    <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#25D366]/10 text-[#25D366] font-bold text-[11px] sm:text-sm tracking-widest uppercase rounded-full mb-4 sm:mb-6 border border-[#25D366]/20">
                         <span className="animate-pulse">★</span> Feature Comparison
                     </div>
                     
                     {/* Headings */}
-                    <h2 className="text-3xl sm:text-5xl font-extrabold text-center text-white mb-4 tracking-tight leading-tight max-w-4xl break-words">
+                    <h2 className="text-xl sm:text-5xl font-extrabold text-center text-white mb-3 sm:mb-4 tracking-tight leading-tight max-w-4xl break-words">
                         Why Choose <span className="text-[#25D366]">Goye</span> Over Other WhatsApp Bulk Messaging Platforms?
                     </h2>
                     
-                    <p className="text-base sm:text-lg text-center text-white/50 max-w-3xl mb-12 font-medium">
+                    <p className="text-xs sm:text-lg text-center text-white/50 max-w-3xl mb-6 sm:mb-12 font-medium leading-relaxed">
                         Compare Goye with traditional WhatsApp bulk messaging tools and discover why businesses choose Goye for faster, smarter, and more reliable messaging.
                     </p>
 
                     {/* Table Container */}
-                    <div className="w-full overflow-hidden rounded-[1.25rem] sm:rounded-[1.5rem] border border-white/10 bg-[#0a0f0c]/60 backdrop-blur-xl mb-12 shadow-2xl">
-                        <table className="w-full text-left border-collapse table-fixed sm:table-auto">
+                    <div className="w-full overflow-x-auto rounded-xl sm:rounded-[1.5rem] border border-white/10 bg-[#0a0f0c]/60 backdrop-blur-xl mb-6 sm:mb-12 shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                        <table className="w-full text-left border-collapse min-w-[480px] sm:min-w-full table-fixed sm:table-auto">
                             <thead>
                                 <tr className="border-b border-white/10 bg-white/[0.02]">
                                     <th className="w-1/2 sm:w-1/3 py-4 px-3 sm:py-6 sm:px-6 text-xs sm:text-lg font-bold text-white/70">Feature</th>
@@ -1307,7 +1307,7 @@ export default function About() {
                                         onSubmit={async (e) => {
                                             e.preventDefault();
                                             try {
-                                                const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goyeorg.onrender.com';
+                                                const apiBaseUrl = process.env.REACT_APP_API_URL || 'https://goye.onrender.com';
                                                 const response = await fetch(`${apiBaseUrl}/api/subscription-requests`, {
                                                     method: 'POST',
                                                     headers: { 'Content-Type': 'application/json' },

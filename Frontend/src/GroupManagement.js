@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import * as XLSX from "xlsx";
 import { socket as whatsappSocket } from "./WhatsAppAuth";
 
-const API_BASE = (process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com").replace(/\/+$/, "");
+const API_BASE = (process.env.REACT_APP_API_URL || "https://goye.onrender.com").replace(/\/+$/, "");
 
 function splitCombinedPhoneNumbers(rawVal) {
   if (!rawVal) return [];
@@ -1036,60 +1036,60 @@ export default function GroupManagement() {
             )}
         {/* Google / Phone Contacts Sync Modal */}
         {showGoogleModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md">
-            <div className="bg-[#161B18] border border-[#25D366]/40 rounded-3xl p-5 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-[0_20px_60px_rgba(0,0,0,0.8)] text-white relative">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/85 backdrop-blur-md">
+            <div className="bg-[#161B18] border border-[#25D366]/40 rounded-2xl sm:rounded-3xl p-4 sm:p-8 max-w-lg w-full max-h-[94vh] sm:max-h-[90vh] overflow-y-auto shadow-[0_20px_60px_rgba(0,0,0,0.8)] text-white relative [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <button
                 onClick={() => setShowGoogleModal(false)}
-                className="absolute top-4 sm:top-5 right-4 sm:right-5 text-white/50 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
+                className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 text-white/50 hover:text-white transition-colors p-1.5 sm:p-2 rounded-full hover:bg-white/10 cursor-pointer"
               >
-                <FiX size={20} />
+                <FiX size={18} />
               </button>
 
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
-                  <FcGoogle size={28} />
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6 pr-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                  <FcGoogle size={24} className="sm:text-3xl" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-extrabold text-white">Import All Phone Contacts</h3>
-                  <p className="text-xs text-[#25D366] font-medium">Simple 2-Step Sync (Takes 10 Seconds!)</p>
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-xl font-extrabold text-white truncate">Import All Phone Contacts</h3>
+                  <p className="text-[11px] sm:text-xs text-[#25D366] font-medium truncate">Simple 2-Step Sync (Takes 10 Seconds!)</p>
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3.5 sm:space-y-4">
                 {/* Step 1 */}
-                <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4">
-                  <div className="flex items-center gap-2 text-sm font-bold text-white mb-2">
-                    <span className="w-6 h-6 rounded-full bg-[#25D366] text-black text-xs flex items-center justify-center font-extrabold">1</span>
+                <div className="bg-white/[0.03] border border-white/10 rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-white mb-1.5 sm:mb-2">
+                    <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#25D366] text-black text-[11px] sm:text-xs flex items-center justify-center font-extrabold shrink-0">1</span>
                     <span>Download Contacts from Google Cloud</span>
                   </div>
-                  <p className="text-xs text-white/60 mb-3 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-white/60 mb-3 leading-relaxed">
                     Click the button below to open Google Contacts (where all your Android phone contacts are stored). Click <strong className="text-white">Export</strong> to download your contacts file.
                   </p>
                   <a
                     href="https://contacts.google.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center gap-2.5 w-full py-3.5 px-4 bg-white hover:bg-gray-100 text-gray-900 font-bold text-sm rounded-xl transition-all shadow-md cursor-pointer"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 sm:py-3.5 px-3 sm:px-4 bg-white hover:bg-gray-100 text-gray-900 font-bold text-xs sm:text-sm rounded-xl transition-all shadow-md cursor-pointer text-center"
                   >
-                    <FcGoogle size={20} />
-                    <span>Open Google Contacts (contacts.google.com)</span>
-                    <FiExternalLink size={15} className="text-gray-600" />
+                    <FcGoogle size={18} className="shrink-0" />
+                    <span className="truncate">Open Google Contacts</span>
+                    <FiExternalLink size={14} className="text-gray-600 shrink-0" />
                   </a>
                 </div>
 
                 {/* Step 2 */}
-                <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4">
-                  <div className="flex items-center gap-2 text-sm font-bold text-white mb-2">
-                    <span className="w-6 h-6 rounded-full bg-[#25D366] text-black text-xs flex items-center justify-center font-extrabold">2</span>
+                <div className="bg-white/[0.03] border border-white/10 rounded-xl sm:rounded-2xl p-3.5 sm:p-4">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-white mb-1.5 sm:mb-2">
+                    <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#25D366] text-black text-[11px] sm:text-xs flex items-center justify-center font-extrabold shrink-0">2</span>
                     <span>Select or Drop the Downloaded File</span>
                   </div>
                   <div
                     onClick={() => fileInputRef.current?.click()}
-                    className="border-2 border-dashed border-[#25D366]/50 hover:border-[#25D366] bg-[#25D366]/5 hover:bg-[#25D366]/15 rounded-2xl p-6 text-center cursor-pointer transition-all duration-300"
+                    className="border-2 border-dashed border-[#25D366]/50 hover:border-[#25D366] bg-[#25D366]/5 hover:bg-[#25D366]/15 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center cursor-pointer transition-all duration-300"
                   >
-                    <FiUpload className="mx-auto text-3xl text-[#25D366] mb-2 animate-bounce" />
-                    <p className="text-sm font-bold text-white">Click Here to Upload Contacts File</p>
-                    <p className="text-xs text-[#25D366] mt-1 font-medium">All 200+ phone contacts will appear immediately!</p>
+                    <FiUpload className="mx-auto text-2xl sm:text-3xl text-[#25D366] mb-1.5 sm:mb-2 animate-bounce" />
+                    <p className="text-xs sm:text-sm font-bold text-white">Click Here to Upload Contacts File</p>
+                    <p className="text-[10px] sm:text-xs text-[#25D366] mt-0.5 sm:mt-1 font-medium">All 200+ phone contacts will appear immediately!</p>
                   </div>
                 </div>
               </div>

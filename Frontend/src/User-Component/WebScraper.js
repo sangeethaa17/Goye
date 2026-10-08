@@ -26,7 +26,7 @@ export default function WebScraper() {
   useEffect(() => {
     const socketUrl = window.location.hostname === "localhost"
       ? "http://localhost:5000"
-      : (process.env.REACT_APP_API_URL || "https://goyeorg.onrender.com");
+      : (process.env.REACT_APP_API_URL || "https://goye.onrender.com");
 
     const socket = io(socketUrl, {
       transports: ["websocket", "polling"],
@@ -225,7 +225,7 @@ export default function WebScraper() {
 
   return (
     <div
-      className="min-h-screen w-full bg-[#212122] py-8 sm:py-12 px-3 sm:px-6 md:px-8 pb-28 sm:pb-12 text-white relative overflow-x-hidden"
+      className="min-h-screen w-full bg-[#212122] py-6 sm:py-12 px-2.5 sm:px-6 md:px-8 pb-28 sm:pb-12 text-white relative overflow-x-hidden"
       style={{
         fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif"
       }}
@@ -242,7 +242,7 @@ export default function WebScraper() {
       {/* Toast Notification */}
       {toast.show && (
         <div
-          className={`fixed top-5 right-5 z-[200] px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 text-xs sm:text-sm font-bold border transition-all animate-bounce backdrop-blur-xl max-w-[calc(100vw-2.5rem)] ${
+          className={`fixed top-5 right-5 z-[200] px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl shadow-2xl flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-bold border transition-all animate-bounce backdrop-blur-xl max-w-[calc(100vw-2rem)] ${
             toast.type === "success"
               ? "bg-[#111B21]/95 border-[#25D366] text-[#25D366] shadow-[0_0_30px_rgba(37,211,102,0.35)]"
               : "bg-[#111B21]/95 border-red-500 text-red-400 shadow-[0_0_30px_rgba(239,68,68,0.35)]"
@@ -253,24 +253,24 @@ export default function WebScraper() {
         </div>
       )}
 
-      <div className="max-w-6xl mx-auto space-y-6 relative z-10">
+      <div className="max-w-6xl mx-auto space-y-5 sm:space-y-6 relative z-10">
 
         {/* Header Title */}
-        <div className="text-center mb-10 relative">
+        <div className="text-center mb-6 sm:mb-10 relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-[#25D366]/20 blur-[80px] rounded-full pointer-events-none"></div>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#25D366]/20 to-[#128C7E]/20 border border-[#25D366]/30 text-[#25D366] text-xs font-black uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(37,211,102,0.2)] animate-pulse">
-            <FiLayers size={14} className="animate-bounce" /> Real-Time Lead Discovery
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-[#25D366]/20 to-[#128C7E]/20 border border-[#25D366]/30 text-[#25D366] text-[10px] sm:text-xs font-black uppercase tracking-widest mb-3 sm:mb-4 shadow-[0_0_15px_rgba(37,211,102,0.2)] animate-pulse">
+            <FiLayers size={13} className="animate-bounce" /> Real-Time Lead Discovery
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#25D366] via-emerald-200 to-[#128C7E] drop-shadow-[0_0_25px_rgba(37,211,102,0.3)]">
+          <h1 className="text-2xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-2 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#25D366] via-emerald-200 to-[#128C7E] drop-shadow-[0_0_25px_rgba(37,211,102,0.3)]">
             Google Maps Web Scraper
           </h1>
-          <p className="text-white/60 mt-2 text-sm sm:text-base md:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/60 mt-1 sm:mt-2 text-xs sm:text-base md:text-lg font-medium max-w-2xl mx-auto leading-relaxed px-1">
             Instantly search local businesses, extract <span className="text-[#25D366]">verified phone numbers</span>, addresses, and export them directly to Excel with a single click.
           </p>
         </div>
         
         {/* ================= DYNAMIC SEARCH CONTROLS ================= */}
-        <div className="bg-white/[0.03] border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+        <div className="bg-white/[0.03] border border-white/10 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl">
           <form onSubmit={handleStartScrape} className="flex flex-col lg:flex-row items-center gap-3.5">
             
             {/* Search Query Input */}
@@ -329,19 +329,19 @@ export default function WebScraper() {
         </div>
 
         {/* ================= LIVE METRIC CARDS ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-5">
           
           {/* Card 1: Places Found */}
-          <div className="bg-[#121A16]/80 border border-white/5 hover:border-[#25D366]/50 rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.15)] backdrop-blur-xl relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 cursor-default">
+          <div className="bg-[#121A16]/80 border border-white/5 hover:border-[#25D366]/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.15)] backdrop-blur-xl relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 cursor-default">
             <div className="absolute inset-0 bg-gradient-to-br from-[#25D366]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="flex items-center justify-between relative z-10">
               <div>
-                <p className="text-xs font-bold text-white/50 mb-1 uppercase tracking-widest group-hover:text-[#25D366] transition-colors">
+                <p className="text-[11px] sm:text-xs font-bold text-white/50 mb-0.5 sm:mb-1 uppercase tracking-widest group-hover:text-[#25D366] transition-colors">
                   {leadsData.length} {searchQuery.trim().split(" ")[0] || "Places"} Found
                 </p>
-                <h3 className="text-4xl font-extrabold text-white tracking-tight group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">{leadsData.length}</h3>
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">{leadsData.length}</h3>
               </div>
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#25D366]/10 to-[#128C7E]/10 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] text-2xl shadow-inner group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#25D366]/10 to-[#128C7E]/10 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] text-xl sm:text-2xl shadow-inner group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
                 <FaBuilding />
               </div>
             </div>
@@ -349,18 +349,18 @@ export default function WebScraper() {
           </div>
 
           {/* Card 2: Phones Extracted */}
-          <div className="bg-[#121A16]/80 border border-white/5 hover:border-[#25D366]/50 rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.15)] backdrop-blur-xl relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 cursor-default">
+          <div className="bg-[#121A16]/80 border border-white/5 hover:border-[#25D366]/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.15)] backdrop-blur-xl relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 cursor-default">
             <div className="absolute inset-0 bg-gradient-to-br from-[#25D366]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="flex items-center justify-between relative z-10">
               <div>
-                <p className="text-xs font-bold text-white/50 mb-1 uppercase tracking-widest group-hover:text-[#25D366] transition-colors">
+                <p className="text-[11px] sm:text-xs font-bold text-white/50 mb-0.5 sm:mb-1 uppercase tracking-widest group-hover:text-[#25D366] transition-colors">
                   Phones Extracted
                 </p>
-                <h3 className="text-4xl font-extrabold text-white tracking-tight group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">
                   {leadsData.filter(l => l.phone).length}
                 </h3>
               </div>
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#25D366]/10 to-[#128C7E]/10 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] text-2xl shadow-inner group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#25D366]/10 to-[#128C7E]/10 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] text-xl sm:text-2xl shadow-inner group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
                 <FiPhone />
               </div>
             </div>
@@ -545,7 +545,7 @@ export default function WebScraper() {
           </div>
 
           {/* ================= PAGINATION ================= */}
-          <div className="bg-white/[0.02] px-6 py-4 border-t border-white/10 flex items-center justify-between">
+          <div className="bg-white/[0.02] px-3.5 sm:px-6 py-3 sm:py-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <span className="text-xs font-medium text-white/50">
               {leadsData.length === 0
                 ? "No results"
